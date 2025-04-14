@@ -1,0 +1,344 @@
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\appsettings.Development.json
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\appsettings.json
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Tabeekh.staticwebassets.endpoints.json
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Tabeekh.exe
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Tabeekh.deps.json
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Tabeekh.runtimeconfig.json
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Tabeekh.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Tabeekh.pdb
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Azure.Core.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Azure.Identity.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Humanizer.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Build.Locator.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Identity.Client.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.OpenApi.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Mono.TextTemplating.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.ClientModel.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.CodeDom.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.Composition.Convention.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.Composition.Hosting.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.Composition.Runtime.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.Composition.TypedParts.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.Drawing.Common.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.Formats.Asn1.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.Memory.Data.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.Runtime.Caching.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.Security.Permissions.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.Text.Json.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\System.Windows.Extensions.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\Tabeekh.csproj.AssemblyReference.cache
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\Tabeekh.GeneratedMSBuildEditorConfig.editorconfig
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\Tabeekh.AssemblyInfoInputs.cache
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\Tabeekh.AssemblyInfo.cs
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\Tabeekh.csproj.CoreCompileInputs.cache
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\Tabeekh.MvcApplicationPartsAssemblyInfo.cs
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\Tabeekh.MvcApplicationPartsAssemblyInfo.cache
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\scopedcss\bundle\Tabeekh.styles.css
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\staticwebassets.build.json
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\staticwebassets.development.json
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\staticwebassets\msbuild.Tabeekh.Microsoft.AspNetCore.StaticWebAssets.props
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\staticwebassets\msbuild.Tabeekh.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\staticwebassets\msbuild.build.Tabeekh.props
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.Tabeekh.props
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.Tabeekh.props
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\staticwebassets.pack.json
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\Tabeekh.csproj.Up2Date
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\Tabeekh.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\refint\Tabeekh.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\Tabeekh.pdb
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\Tabeekh.genruntimeconfig.cache
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\ref\Tabeekh.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\obj\Debug\net9.0\Tabeekh.sourcelink.json
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\Collage\ITI\Grad Project\Tabeekh\Tabeekh\bin\Debug\net9.0\Scalar.AspNetCore.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\appsettings.Development.json
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\appsettings.json
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Tabeekh.staticwebassets.endpoints.json
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Tabeekh.exe
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Tabeekh.deps.json
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Tabeekh.runtimeconfig.json
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Tabeekh.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Tabeekh.pdb
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Azure.Core.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Azure.Identity.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Humanizer.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Build.Locator.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Identity.Client.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Mono.TextTemplating.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Scalar.AspNetCore.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.ClientModel.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.CodeDom.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.Composition.Convention.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.Composition.Hosting.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.Composition.Runtime.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.Composition.TypedParts.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.Drawing.Common.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.Formats.Asn1.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.Memory.Data.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.Runtime.Caching.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.Security.Permissions.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.Text.Json.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\System.Windows.Extensions.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\Tabeekh.csproj.AssemblyReference.cache
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\Tabeekh.GeneratedMSBuildEditorConfig.editorconfig
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\Tabeekh.AssemblyInfoInputs.cache
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\Tabeekh.AssemblyInfo.cs
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\Tabeekh.csproj.CoreCompileInputs.cache
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\Tabeekh.MvcApplicationPartsAssemblyInfo.cs
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\Tabeekh.MvcApplicationPartsAssemblyInfo.cache
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\Tabeekh.sourcelink.json
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\scopedcss\bundle\Tabeekh.styles.css
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\staticwebassets.build.json
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\staticwebassets.development.json
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\staticwebassets\msbuild.Tabeekh.Microsoft.AspNetCore.StaticWebAssets.props
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\staticwebassets\msbuild.Tabeekh.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\staticwebassets\msbuild.build.Tabeekh.props
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.Tabeekh.props
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.Tabeekh.props
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\staticwebassets.pack.json
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\Tabeekh.csproj.Up2Date
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\Tabeekh.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\refint\Tabeekh.dll
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\Tabeekh.pdb
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\Tabeekh.genruntimeconfig.cache
+D:\ITI ( 4 Months )\Final Projec\Tabeekh\obj\Debug\net9.0\ref\Tabeekh.dll

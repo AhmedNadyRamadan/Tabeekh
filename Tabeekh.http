@@ -1,0 +1,6 @@
+@Tabeekh_HostAddress = http://localhost:5082
+
+GET {{Tabeekh_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
