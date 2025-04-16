@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ITI ( 4 Months )\\Final Projec\\Tabeekh\\Tabeekh.csproj": {}
+    "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Tabeekh.csproj": {}
   },
   "projects": {
-    "D:\\ITI ( 4 Months )\\Final Projec\\Tabeekh\\Tabeekh.csproj": {
+    "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Tabeekh.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ITI ( 4 Months )\\Final Projec\\Tabeekh\\Tabeekh.csproj",
+        "projectUniqueName": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Tabeekh.csproj",
         "projectName": "Tabeekh",
-        "projectPath": "D:\\ITI ( 4 Months )\\Final Projec\\Tabeekh\\Tabeekh.csproj",
-        "packagesPath": "C:\\Users\\AHMED NADY\\.nuget\\packages\\",
-        "outputPath": "D:\\ITI ( 4 Months )\\Final Projec\\Tabeekh\\obj\\",
+        "projectPath": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Tabeekh.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\AHMED NADY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -74,6 +73,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.4, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             },
             "Scalar.AspNetCore": {
               "target": "Package",
@@ -111,7 +114,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

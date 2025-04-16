@@ -25,6 +25,6 @@ namespace Tabeekh.DTOs
         public string ConfirmPassword { get; set; }
 
         [Required]
-        public UserType Type { get; set; }
+        public UserType Role { get; set; }
     }
 }

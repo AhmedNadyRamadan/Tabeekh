@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Tabeekh.Validators;
+﻿
+using System.ComponentModel.DataAnnotations;
 
 namespace Tabeekh.Models
 {
@@ -8,6 +8,7 @@ namespace Tabeekh.Models
         Chief = 0,
         Customer = 1,
         Delivery = 2,
+        Admin = 3
     }
     public class User
     {
@@ -20,6 +21,7 @@ namespace Tabeekh.Models
         
         public string Password { get; set; }
 
-        public UserType Type { get; set; }
+        [EnumDataType(typeof(UserType), ErrorMessage = "Invalid Role specified")]
+        public UserType Role { get; set; }
     }
 }

@@ -156,11 +156,9 @@ namespace Tabeekh.Migrations
 
             modelBuilder.Entity("Tabeekh.Models.Delivery_Cust_Meal_Order", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("Customer_Id")
                         .HasColumnType("uniqueidentifier");
@@ -245,7 +243,7 @@ namespace Tabeekh.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Type")
+                    b.Property<int>("Role")
                         .HasColumnType("int");
 
                     b.Property<string>("Username")
