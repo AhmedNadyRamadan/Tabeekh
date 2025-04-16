@@ -21,7 +21,6 @@ namespace Tabeekh.Controllers
             // For example, you might fetch from a database
             var customers = _context.Customers.ToList();
             return Ok(customers);
-            return Ok(new { message = "List of all customers" });
         }
         // Get a specific customer by ID
         [HttpGet("{id}")]

@@ -1,0 +1,449 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\controllers\\deliveriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:controllers\\deliveriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\controllers\\cheifcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:controllers\\cheifcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\controllers\\mealcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:controllers\\mealcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\migrations\\20250411182732_addmealstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:migrations\\20250411182732_addmealstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\migrations\\20250414174928_add_customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:migrations\\20250414174928_add_customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\models\\delivery_cust_meal_order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:models\\delivery_cust_meal_order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250416123244_updateOrdersId.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20250416123244_updateOrdersId.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\migrations\\tabeekhdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:migrations\\tabeekhdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\migrations\\20250411174949_intialize_db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:migrations\\20250411174949_intialize_db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\migrations\\20250416115920_adduserrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:migrations\\20250416115920_adduserrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\migrations\\20250414200656_customerreviews.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:migrations\\20250414200656_customerreviews.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\models\\meal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:models\\meal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\models\\cust_chief_review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:models\\cust_chief_review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\models\\cust_meal_review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:models\\cust_meal_review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\models\\tabeekhdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:models\\tabeekhdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\models\\chief.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:models\\chief.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\dtos\\userregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:dtos\\userregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250416115623_addUserRole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20250416115623_addUserRole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\controllers\\cheifreviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:controllers\\cheifreviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|f:\\collage\\iti\\grad project\\takeekh-newrepo\\tabeekh\\validators\\confirmpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BB5352-D0F9-488F-9CED-4BDEE3674A10}|Tabeekh.csproj|solutionrelative:validators\\confirmpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "20250411182732_addMealsTable.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250411182732_addMealsTable.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250411182732_addMealsTable.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250411182732_addMealsTable.cs",
+              "RelativeToolTip": "Migrations\\20250411182732_addMealsTable.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAEwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T11:58:31.389Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "20250414174928_Add_CustomerController.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250414174928_Add_CustomerController.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250414174928_Add_CustomerController.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250414174928_Add_CustomerController.cs",
+              "RelativeToolTip": "Migrations\\20250414174928_Add_CustomerController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAnwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T11:57:56.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Controllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CustomerController.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Controllers\\CustomerController.cs*",
+              "RelativeToolTip": "Controllers\\CustomerController.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T20:49:50.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MealController.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Controllers\\MealController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MealController.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Controllers\\MealController.cs",
+              "RelativeToolTip": "Controllers\\MealController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAcwCcAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T20:44:40.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrderController.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Controllers\\OrderController.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAawDUAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T00:24:58.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CheifController.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Controllers\\CheifController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CheifController.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Controllers\\CheifController.cs",
+              "RelativeToolTip": "Controllers\\CheifController.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAWwAoAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T20:44:58.855Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DeliveriesController.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Controllers\\DeliveriesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DeliveriesController.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Controllers\\DeliveriesController.cs",
+              "RelativeToolTip": "Controllers\\DeliveriesController.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAlwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T12:21:37.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Delivery_Cust_Meal_Order.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\Delivery_Cust_Meal_Order.cs",
+              "RelativeDocumentMoniker": "Models\\Delivery_Cust_Meal_Order.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\Delivery_Cust_Meal_Order.cs",
+              "RelativeToolTip": "Models\\Delivery_Cust_Meal_Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T00:26:59.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "20250416123244_updateOrdersId.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250416123244_updateOrdersId.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250416123244_updateOrdersId.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250416123244_updateOrdersId.cs",
+              "RelativeToolTip": "Migrations\\20250416123244_updateOrdersId.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T12:32:44.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TabeekhDBContextModelSnapshot.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\TabeekhDBContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Migrations\\TabeekhDBContextModelSnapshot.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\TabeekhDBContextModelSnapshot.cs",
+              "RelativeToolTip": "Migrations\\TabeekhDBContextModelSnapshot.cs",
+              "ViewState": "AgIAAJgAAAAAAAAAAAAMwLcAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T11:58:59.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "20250416115920_addUserRole.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250416115920_addUserRole.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250416115920_addUserRole.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250416115920_addUserRole.cs",
+              "RelativeToolTip": "Migrations\\20250416115920_addUserRole.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAjwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T11:59:20.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "20250411174949_intialize_DB.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250411174949_intialize_DB.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250411174949_intialize_DB.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250411174949_intialize_DB.cs",
+              "RelativeToolTip": "Migrations\\20250411174949_intialize_DB.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAmwC4AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T11:57:13.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "20250414200656_CustomerReviews.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250414200656_CustomerReviews.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250414200656_CustomerReviews.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250414200656_CustomerReviews.cs",
+              "RelativeToolTip": "Migrations\\20250414200656_CustomerReviews.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAEwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T11:51:16.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Meal.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\Meal.cs",
+              "RelativeDocumentMoniker": "Models\\Meal.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\Meal.cs",
+              "RelativeToolTip": "Models\\Meal.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAADwvxAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T00:19:25.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAMwIQAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T00:29:37.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "User.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T11:51:19.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Cust_Chief_Review.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\Cust_Chief_Review.cs",
+              "RelativeDocumentMoniker": "Models\\Cust_Chief_Review.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\Cust_Chief_Review.cs",
+              "RelativeToolTip": "Models\\Cust_Chief_Review.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T00:19:36.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\Customer.cs",
+              "RelativeDocumentMoniker": "Models\\Customer.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\Customer.cs",
+              "RelativeToolTip": "Models\\Customer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T12:06:02.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Cust_Meal_Review.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\Cust_Meal_Review.cs",
+              "RelativeDocumentMoniker": "Models\\Cust_Meal_Review.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\Cust_Meal_Review.cs",
+              "RelativeToolTip": "Models\\Cust_Meal_Review.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T12:06:03.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TabeekhDBContext.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\TabeekhDBContext.cs",
+              "RelativeDocumentMoniker": "Models\\TabeekhDBContext.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\TabeekhDBContext.cs",
+              "RelativeToolTip": "Models\\TabeekhDBContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T12:06:06.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "UserRegisterDTO.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\DTOs\\UserRegisterDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\UserRegisterDTO.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\DTOs\\UserRegisterDTO.cs",
+              "RelativeToolTip": "DTOs\\UserRegisterDTO.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAkwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T11:52:17.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Chief.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\Chief.cs",
+              "RelativeDocumentMoniker": "Models\\Chief.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Models\\Chief.cs",
+              "RelativeToolTip": "Models\\Chief.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T00:28:20.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "20250416115623_addUserRole.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250416115623_addUserRole.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250416115623_addUserRole.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Migrations\\20250416115623_addUserRole.cs",
+              "RelativeToolTip": "Migrations\\20250416115623_addUserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T11:56:23.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "CheifReviewController.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Controllers\\CheifReviewController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CheifReviewController.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Controllers\\CheifReviewController.cs",
+              "RelativeToolTip": "Controllers\\CheifReviewController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T00:21:46.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ConfirmPassword.cs",
+              "DocumentMoniker": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Validators\\ConfirmPassword.cs",
+              "RelativeDocumentMoniker": "Validators\\ConfirmPassword.cs",
+              "ToolTip": "F:\\Collage\\ITI\\Grad Project\\Takeekh-newRepo\\Tabeekh\\Validators\\ConfirmPassword.cs",
+              "RelativeToolTip": "Validators\\ConfirmPassword.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T00:11:35.512Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

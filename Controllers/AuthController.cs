@@ -41,7 +41,7 @@ namespace Tabeekh.Controllers
             userToDB.Email = user.Email;
             userToDB.Username = user.Username;
             userToDB.Phone = user.Phone;
-            userToDB.Type = user.Type;
+            userToDB.Role = user.Role;
             userToDB.Id = user.Id;
             userToDB.Password = hashedPassword;
             
@@ -71,13 +71,66 @@ namespace Tabeekh.Controllers
             return Ok(GetToken(userDB));
         }
 
+        [HttpDelete("Delete")]
+        public IActionResult DeleteUser([FromBody] UserDTO user)
+        {
+            var userDB = _tabeekhDB.Users.FirstOrDefault(u => u.Email == user.Email);
+
+            if (userDB == null)
+            {
+                return BadRequest(new { message = "User not found" });
+            }
+            var VerifyPassword = new PasswordHasher<User>().VerifyHashedPassword(userDB, userDB.Password, user.Password);
+            if (VerifyPassword == PasswordVerificationResult.Success)
+            {
+                _tabeekhDB.Users.Remove(userDB);
+                _tabeekhDB.SaveChanges();
+                return Ok(string.Format("user: {0} has been removed successfully", user.Email));
+            }
+
+            return BadRequest("Invalid user name or email");
+        }
+
+        [HttpGet("GetUsers")]
+        public IActionResult GetUsers()
+        {
+            var users = _tabeekhDB.Users.ToList();
+            if (users == null || !users.Any())
+            {
+                return NotFound("No users found.");
+            }
+            return Ok(users);
+        }
+        [HttpPost("Change-password")]
+        public IActionResult ChangePassword([FromBody] UserDTO user, string newPassword)
+        {
+
+           
+            var userDB = _tabeekhDB.Users.FirstOrDefault(u=>u.Email == user.Email);
+            if (userDB == null )
+            {
+                return NotFound("No user found");
+            }
+            var verifyPassword = new PasswordHasher<User>().VerifyHashedPassword(userDB,userDB.Password,user.Password);
+            if (verifyPassword == PasswordVerificationResult.Failed)
+            {
+                return NotFound("Invalid email or password");
+            }
+
+            var hashPassword = new PasswordHasher<User>().HashPassword(userDB, newPassword);
+            userDB.Password = hashPassword;
+            _tabeekhDB.Update(userDB);
+            _tabeekhDB.SaveChanges();
+            return Ok("Password has been changed successfully");
+        }
         private string GetToken(User user)
         {
             var claims = new List<Claim>()
             {
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name,user.Username)
+                new Claim(ClaimTypes.Name,user.Username),
+                new Claim(ClaimTypes.Role,user.Role.ToString())
 
             };
 

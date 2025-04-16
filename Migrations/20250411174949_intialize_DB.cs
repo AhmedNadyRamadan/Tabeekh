@@ -58,7 +58,7 @@ namespace Tabeekh.Migrations
                 name: "Orders",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Delivery_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Customer_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -79,7 +79,7 @@ namespace Tabeekh.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Photo = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
-                    Prepration_Time = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Prepration_Time = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<int>(type: "int", nullable: false),
                     Available = table.Column<bool>(type: "bit", nullable: false),
                     Ingredients = table.Column<string>(type: "nvarchar(max)", nullable: true),

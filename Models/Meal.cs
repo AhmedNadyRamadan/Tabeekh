@@ -14,7 +14,6 @@ namespace Tabeekh.Models
     }
     public class Meal
     {
-        [JsonIgnore]
 
         public Guid Id { get; set; }
         public string Name { get; set; }
