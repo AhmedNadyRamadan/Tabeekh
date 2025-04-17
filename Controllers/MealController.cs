@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Tabeekh.Models;
 
 namespace Tabeekh.Controllers
@@ -13,50 +14,90 @@ namespace Tabeekh.Controllers
         {
             _context = context;
         }
+
         // Get all meals
         [HttpGet]
-        public IActionResult GetAllMeals()
+        public async Task<ActionResult<IEnumerable<Meal>>> GetAllMeals()
         {
-            var meals = _context.Meals.ToList();
-            if (meals == null || !meals.Any())
-            {
-                return NotFound("No meals found.");
-            }
+            var meals = await _context.Meals.ToListAsync();
+            //if (meals == null || !meals.Any())
+            //{
+            //    return NotFound(new { message = "No meals found." });
+            //}
             return Ok(meals);
         }
-        // Get meal by ID
-        [HttpGet("{id}")]
-        public IActionResult GetMealById(Guid id)
+
+        // Get a specific meal by ID
+        [HttpGet("{id:guid}")]
+        public async Task<ActionResult<Meal>> GetMealById(Guid id)
         {
-            var meal = _context.Meals.FirstOrDefault(m => m.Id == id);
+            var meal = await _context.Meals.FirstOrDefaultAsync(m => m.Id == id);
             if (meal == null)
             {
-                return NotFound("Meal not found.");
+                return NotFound(new { message = "Meal not found." });
             }
             return Ok(meal);
         }
+
         // Get meals by name
         [HttpGet("name/{name}")]
-        public IActionResult GetMealsByName(string name)
+        public async Task<ActionResult<IEnumerable<Meal>>> GetMealsByName(string name)
         {
-            var meals = _context.Meals.Where(m => m.Name.ToLower().Contains(name.ToLower())).ToList();
-            if (meals == null || !meals.Any())
-            {
-                return NotFound("No meals found with the given name.");
-            }
+            var meals = await _context.Meals
+                .Where(m => m.Name.ToLower().Contains(name.ToLower()))
+                .ToListAsync();
+
+            //if (meals == null || !meals.Any())
+            //{
+            //    return NotFound(new { message = "No meals found with the given name." });
+            //}
             return Ok(meals);
         }
+
         // Get meals by chief ID
-        [HttpGet("chief/{chiefId}")]
-        public IActionResult GetMealsByChiefId(Guid chiefId)
+        [HttpGet("chief/{chiefId:guid}")]
+        public async Task<ActionResult<IEnumerable<Meal>>> GetMealsByChiefId(Guid chiefId)
         {
-            var meals = _context.Meals.Where(m => m.Chief_Id == chiefId).ToList();
+            var meals = await _context.Meals
+                .Where(m => m.Chief_Id == chiefId)
+                .ToListAsync();
+
             if (meals == null || !meals.Any())
             {
-                return NotFound("No meals found for the given chief ID.");
+                return NotFound(new { message = "No meals found for the given chief ID." });
             }
             return Ok(meals);
         }
 
+        // Get meals by chief name
+        [HttpGet("chief/name/{chiefName}")]
+        public async Task<ActionResult<IEnumerable<Meal>>> GetMealsByChiefName(string chiefName)
+        {
+            var meals = await _context.Meals
+                .Where(m => m.Chief.Name.ToLower().Contains(chiefName.ToLower()))
+                .ToListAsync();
+            //if (meals == null || !meals.Any())
+            //{
+            //    return NotFound(new { message = "No meals found for the given chief name." });
+            //}
+            return Ok(meals);
+        }
+
+        // Get all reviews for a specific meal
+        [HttpGet("GetMealReviews/{mealId:guid}")]
+        public async Task<ActionResult<IEnumerable<Cust_Meal_Review>>> GetMealReviews(Guid mealId)
+        {
+            var mealExists = await _context.Meals.AnyAsync(m => m.Id == mealId);
+            if (!mealExists)
+            {
+                return NotFound(new { message = "Meal not found." });
+            }
+
+            var reviews = await _context.Cust_Meal_Reviews
+                .Where(r => r.Meal_Id == mealId)
+                .ToListAsync();
+
+            return Ok(reviews);
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace Tabeekh.Models
         public DbSet<Cust_Meal_Review> Cust_Meal_Reviews { get; set; }
 
         // Auth
-        public DbSet<User> Users { get; set; }
+        public DbSet<EndUser> EndUsers { get; set; }
 
     }
 }

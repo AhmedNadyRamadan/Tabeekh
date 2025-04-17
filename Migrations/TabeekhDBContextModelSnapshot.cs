@@ -156,11 +156,9 @@ namespace Tabeekh.Migrations
 
             modelBuilder.Entity("Tabeekh.Models.Delivery_Cust_Meal_Order", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("Customer_Id")
                         .HasColumnType("uniqueidentifier");
@@ -183,6 +181,36 @@ namespace Tabeekh.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Delivery_Cust_Meal_Orders");
+                });
+
+            modelBuilder.Entity("Tabeekh.Models.EndUser", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EndUsers");
                 });
 
             modelBuilder.Entity("Tabeekh.Models.Meal", b =>
@@ -225,36 +253,6 @@ namespace Tabeekh.Migrations
                     b.HasIndex("Chief_Id");
 
                     b.ToTable("Meals");
-                });
-
-            modelBuilder.Entity("Tabeekh.Models.User", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Tabeekh.Models.Cust_Chief_Review", b =>

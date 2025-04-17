@@ -8,7 +8,7 @@ namespace Tabeekh.Models
     public class Delivery_Cust_Meal_Order
     {
         [Key]   
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [ForeignKey("Delivery")]
         public Guid Delivery_Id { get; set; }
         [ForeignKey("Customer")]
