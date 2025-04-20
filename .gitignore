@@ -13,3 +13,7 @@
 *.userosscache
 *.suo
 *.userprefs
+bin/
+obj/
+dotnet-install.sh
+packages-microsoft-prod.deb

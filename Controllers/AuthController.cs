@@ -102,22 +102,23 @@ namespace Tabeekh.Controllers
             return Ok(users);
         }
         [HttpPost("Change-password")]
-        public IActionResult ChangePassword([FromBody] UserDTO user, string newPassword)
+        public IActionResult ChangePassword(
+            [FromBody] ChangePassDTO user)
         {
 
            
-            var userDB = _tabeekhDB.EndUsers.FirstOrDefault(u=>u.Email == user.Email);
+            var userDB = _tabeekhDB.EndUsers.FirstOrDefault(u=>u.Email == user.email);
             if (userDB == null )
             {
                 return NotFound("No user found");
             }
-            var verifyPassword = new PasswordHasher<EndUser>().VerifyHashedPassword(userDB,userDB.Password,user.Password);
+            var verifyPassword = new PasswordHasher<EndUser>().VerifyHashedPassword(userDB,userDB.Password,user.password);
             if (verifyPassword == PasswordVerificationResult.Failed)
             {
                 return NotFound("Invalid email or password");
             }
 
-            var hashPassword = new PasswordHasher<EndUser>().HashPassword(userDB, newPassword);
+            var hashPassword = new PasswordHasher<EndUser>().HashPassword(userDB, user.newPassword);
             userDB.Password = hashPassword;
             _tabeekhDB.Update(userDB);
             _tabeekhDB.SaveChanges();
