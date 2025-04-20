@@ -49,6 +49,7 @@ namespace Tabeekh.Controllers
             _tabeekhDB.SaveChanges();
             return Ok(new { message = " registered successfully", userToDB });
         }
+
         [HttpPost("Login")]
         public IActionResult Login([FromBody] UserDTO user)
         {
@@ -68,7 +69,23 @@ namespace Tabeekh.Controllers
             {
                 return BadRequest("Invalid password");
             }
-            return Ok(GetToken(userDB));
+            var token = GetToken(userDB);
+            Response.Cookies.Append("X-Access-Token", token, new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.Strict });
+
+            return Ok(token);
+        }
+
+        [HttpGet("Logout")]
+        public IActionResult Logout()
+        {       
+            Response.Cookies.Append("X-Access-Token", "", new CookieOptions
+            {
+                Expires = DateTimeOffset.UtcNow.AddDays(-1),
+                HttpOnly = true,
+                SameSite = SameSiteMode.Strict
+            });
+
+            return Ok("You logged out successfully");
         }
 
         [HttpDelete("Delete")]

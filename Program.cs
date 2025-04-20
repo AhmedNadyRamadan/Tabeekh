@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 using Tabeekh.Models;
+using Tabeekh.Middlewares;
 
 namespace lab1
 {
@@ -17,12 +18,15 @@ namespace lab1
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddTransient<JwtMiddleware>();
+
             builder.Services.AddDbContext<TabeekhDBContext>(options =>
             {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("TabeekhDB"));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("TabeekhDBLinux"));
             });
             builder.Services.AddCors(options =>
             {
+         
                 options.AddPolicy("AllowAll", builder =>
                 {
                     builder.AllowAnyOrigin()
@@ -38,6 +42,14 @@ namespace lab1
 
             }).AddJwtBearer(options =>
             {
+                       options.Events = new JwtBearerEvents
+                    {
+                        OnMessageReceived = context =>
+                        {
+                            context.Token = context.Request.Cookies["X-Access-Token"];
+                            return Task.CompletedTask;
+                        }
+                    };
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
@@ -55,6 +67,7 @@ namespace lab1
 
             var app = builder.Build();
             // Configure the HTTP request pipeline.
+            app.UseMiddleware<JwtMiddleware>();
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();

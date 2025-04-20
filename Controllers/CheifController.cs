@@ -10,7 +10,7 @@ namespace Tabeekh.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles ="Admin")]
+    [Authorize]
     public class CheifController : ControllerBase
     {
         private readonly TabeekhDBContext _context;
