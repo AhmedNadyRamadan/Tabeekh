@@ -71,7 +71,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "user",
+        "Name": "EndUser",
         "Type": "Tabeekh.DTOs.UserRegisterDTO",
         "IsRequired": true
       }
