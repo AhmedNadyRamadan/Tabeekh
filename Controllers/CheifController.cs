@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,9 +21,40 @@ namespace Tabeekh.Controllers
 
         // Get all Chiefs
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Chief>>> GetAllChiefs()
+        public async Task<ActionResult<IEnumerable<Chief>>> GetAllChiefs( 
+            [FromQuery] int pageNumber,
+            [FromQuery] int limit,
+            [FromQuery] string nameFilter = "")
         {
-            var chiefs = await _context.Chiefs.ToListAsync();
+            if (pageNumber <= 0 || limit <= 0)
+            {
+                return BadRequest(new { message = "Page number and limit must be greater than zero." });
+            }
+
+            IQueryable<Chief> query = _context.Chiefs;
+
+            if (!string.IsNullOrWhiteSpace(nameFilter))
+            {
+                query = query.Where(m => m.Name.Contains(nameFilter));
+            }
+
+            var totalChiefs = await query.CountAsync();
+
+            var chiefs = await query
+                .Skip(limit * (pageNumber - 1))
+                .Take(limit)
+                .ToListAsync();
+
+            var paginationMetadata = new
+            {
+                totalCount = totalChiefs,
+                pageNumber,
+                pageSize = limit,
+                totalPages = (int)Math.Ceiling(totalChiefs / (double)limit)
+            };
+
+            Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(paginationMetadata));
+
             return Ok(chiefs);
         }
 
@@ -39,7 +71,7 @@ namespace Tabeekh.Controllers
         }
 
         // Get Chief by Name
-        [HttpGet("name/{name}")]
+        [HttpGet("{name:alpha}")]
         public async Task<ActionResult<IEnumerable<Chief>>> GetChiefByName(string name)
         {
             var chiefs = await _context.Chiefs
