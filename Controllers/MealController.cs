@@ -21,7 +21,10 @@ namespace Tabeekh.Controllers
         public async Task<ActionResult<IEnumerable<Meal>>> GetAllMeals(
             [FromQuery] int pageNumber,
             [FromQuery] int limit,
-            [FromQuery] string nameFilter = "")
+            [FromQuery] string name = "",
+            [FromQuery] string category = ""
+            
+            )
         {
             if (pageNumber <= 0 || limit <= 0)
             {
@@ -29,10 +32,21 @@ namespace Tabeekh.Controllers
             }
 
             IQueryable<Meal> query = _context.Meals;
+            
 
-            if (!string.IsNullOrWhiteSpace(nameFilter))
+            if (!string.IsNullOrWhiteSpace(name))
             {
-                query = query.Where(m => m.Name.Contains(nameFilter));
+                query = query.Where(m => m.Name.Contains(name));
+            }
+
+            if (!string.IsNullOrWhiteSpace(category))
+            {
+                var cat = await _context.Categories.FirstOrDefaultAsync(c=>c.Name.Contains(category));
+                if(cat == null){
+                    return BadRequest("wrong category");
+                }
+                var mealsWithCat = await _context.Meals_Categories.Where(m=>m.CategoryId == cat.Id).Select(m=>m.MealId).ToListAsync();
+                query = query.Where(m=>mealsWithCat.Contains(m.Id));
             }
 
             var totalMeals = await query.CountAsync();
