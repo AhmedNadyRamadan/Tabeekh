@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tabeekh.Models;
 
@@ -11,9 +12,11 @@ using Tabeekh.Models;
 namespace Tabeekh.Migrations
 {
     [DbContext(typeof(TabeekhDBContext))]
-    partial class TabeekhDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250426005507_update_orders_table")]
+    partial class update_orders_table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -186,6 +189,10 @@ namespace Tabeekh.Migrations
                     b.Property<Guid>("Delivery_Id")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Customer_Id");
@@ -283,31 +290,6 @@ namespace Tabeekh.Migrations
                     b.ToTable("Meals_Categories");
                 });
 
-            modelBuilder.Entity("Tabeekh.Models.Order_items", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("MealId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Note")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("OrderId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("Order_Items");
-                });
-
             modelBuilder.Entity("Tabeekh.Models.Cust_Chief_Review", b =>
                 {
                     b.HasOne("Tabeekh.Models.Chief", "Chief")
@@ -385,17 +367,6 @@ namespace Tabeekh.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Meal");
-                });
-
-            modelBuilder.Entity("Tabeekh.Models.Order_items", b =>
-                {
-                    b.HasOne("Tabeekh.Models.Delivery_Cust_Meal_Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("Tabeekh.Models.Chief", b =>

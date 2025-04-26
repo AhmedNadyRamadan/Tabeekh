@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using OpenAI.Chat;
 using Tabeekh.Models;
+using DotNetEnv;
 
 namespace Tabeekh.Controllers
 {
@@ -10,11 +12,14 @@ namespace Tabeekh.Controllers
     [ApiController]
     public class MealController : ControllerBase
     {
-        private readonly TabeekhDBContext _context;
-        public MealController(TabeekhDBContext context)
-        {
-            _context = context;
-        }
+         private readonly TabeekhDBContext _context;
+    private readonly IConfiguration _config;
+
+    public MealController(TabeekhDBContext context, IConfiguration config)
+    {
+        _context = context;
+        _config = config;
+    }
 
         // Get all meals
         [HttpGet]
@@ -141,6 +146,25 @@ namespace Tabeekh.Controllers
 
             return Ok(reviews);
         }
+        
+        [HttpGet("RecommendFood")]
+        public  ActionResult RecommendFood(string category)
+        {
+            var meals = _context.Meals.ToList();
+            // give it a prompt to recommend a meal from the list of meals above based on the category provide the meals list to the promt to choose from and make the response has an array of the recommended meals
+            
+            string prompt = $"Please recommend a meal from the following list based on the category {category} : ";
+            foreach (var meal in meals)
+            {
+                prompt += $"{meal} , ";
+            }
+            prompt += $"Please provide the recommended meals in an array format like this: [meal1 details, meal2 details, meal3 details]";
+
+            ChatClient client = new(model: "gpt-4o-mini", apiKey: _config.GetValue<string>("Application:OpenAi_Api_key"));
+            ChatCompletion completion = client.CompleteChat(prompt);
+            return Ok(completion.Content[0].Text);
+        }
+        
         
     }
 }

@@ -12,6 +12,7 @@ namespace Tabeekh.Models
         public DbSet<Meal> Meals { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
         public DbSet<Delivery_Cust_Meal_Order> Delivery_Cust_Meal_Orders { get; set; }
+        public DbSet<Order_items> Order_Items { get; set; }
         public DbSet<Cust_Chief_Review> Cust_Chief_Reviews { get; set; }
         public DbSet<Cust_Meal_Review> Cust_Meal_Reviews { get; set; }
         public DbSet<Category> Categories { get; set; }

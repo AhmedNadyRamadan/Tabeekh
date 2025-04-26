@@ -14,16 +14,9 @@ namespace Tabeekh.Models
         public Guid Delivery_Id { get; set; }
         [ForeignKey("Customer")]
         public Guid Customer_Id { get; set; }
-        [ForeignKey("Meal")]
-        public Guid Meal_Id { get; set; }
         public DateTime Date { get; set; }
-        [Required]
-        public float Quantity { get; set; }
-        public string? Note { get; set; }
         [JsonIgnore]
         public Customer? Customer { get; set; }
-        [JsonIgnore]
-        public Meal? Meal { get; set; }
 
     }
 }

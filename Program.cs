@@ -17,9 +17,11 @@ namespace lab1
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
             builder.Services.AddTransient<JwtMiddleware>();
+            var configuration = builder.Configuration;
+            builder.Services.AddSingleton<IConfiguration>(configuration);
 
+            builder.Services.AddControllers();
             builder.Services.AddDbContext<TabeekhDBContext>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("TabeekhDBLinux"));
@@ -75,6 +77,7 @@ namespace lab1
                 app.MapOpenApi();
                 app.MapScalarApiReference();
                 app.MapSwagger();
+
 
             }
 

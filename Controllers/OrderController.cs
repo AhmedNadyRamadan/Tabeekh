@@ -14,7 +14,6 @@ namespace Tabeekh.Controllers
     public class OrderController : ControllerBase
     {
         private readonly TabeekhDBContext _context;
-
         public OrderController(TabeekhDBContext context)
         {
             _context = context;
@@ -90,7 +89,6 @@ namespace Tabeekh.Controllers
             delivery_Cust_Meal_Order.Date = DateTime.Now;
             _context.Delivery_Cust_Meal_Orders.Add(delivery_Cust_Meal_Order);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetOrder", new { id = delivery_Cust_Meal_Order.Id }, delivery_Cust_Meal_Order);
         }
 
@@ -110,6 +108,24 @@ namespace Tabeekh.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("GetOrderDetails")]
+        public async Task<ActionResult<IEnumerable<Order_items>>> GetOrderDetails()
+        {
+            return await _context.Order_Items.ToListAsync();
+        }
+
+        [HttpGet("GetOrderDetails/{id}")]
+        public async Task<ActionResult<IEnumerable<Order_items>>> GetOrderDetails(Guid id)
+        {
+            var order = await _context.Order_Items.FirstOrDefaultAsync(o => o.OrderId == id);
+            if (order == null)
+            {
+                return Ok();
+            }
+            return Ok(order);
+        }
+     
 
         // This method checks if a specific order exists by ID.
         private bool Delivery_Cust_Meal_OrderExists(Guid id)

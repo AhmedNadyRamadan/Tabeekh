@@ -12,6 +12,17 @@ namespace Tabeekh.Models
         Other = 2,
 
     }
+
+    public enum Day  {
+        Saturday = 0,
+        Sunday = 1,
+        Monday = 2,
+        Tuesday = 3,
+        Wednesday = 4,
+        Thursday = 5,
+        Friday = 6,
+        General = 7
+    }
     public class Meal
     {
 
@@ -35,7 +46,8 @@ namespace Tabeekh.Models
         [JsonIgnore]
         public Chief? Chief { get; set; }
 
-
+        [EnumDataType(typeof(Day), ErrorMessage = "Invalid day entry")]
+        public Day Day { get; set; }
 
     }
 }

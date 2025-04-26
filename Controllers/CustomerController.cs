@@ -49,18 +49,18 @@ namespace Tabeekh.Controllers
 
             return Ok(orders);
         }
+        // // !deleted
+        // // GET: api/Customers/{id}/chefs
+        // // This endpoint retrieves all chefs for a specific customer.
+        // [HttpGet("{id:guid}/chiefs")]
+        // public async Task<ActionResult<IEnumerable<Chief>>> GetChefs(Guid id)
+        // {
+        //     if (!await _context.Customers.AnyAsync(c => c.Id == id))
+        //         return NotFound(new { message = "Customer not found." });
 
-        // GET: api/Customers/{id}/chefs
-        // This endpoint retrieves all chefs for a specific customer.
-        [HttpGet("{id:guid}/chefs")]
-        public async Task<ActionResult<IEnumerable<Chief>>> GetChefs(Guid id)
-        {
-            if (!await _context.Customers.AnyAsync(c => c.Id == id))
-                return NotFound(new { message = "Customer not found." });
-
-            var chefs = await _context.Chiefs.ToListAsync();
-            return Ok(chefs);
-        }
+        //     var chiefs = await _context.Chiefs.ToListAsync();
+        //     return Ok(chiefs);
+        // }
 
         // POST: api/Customers
         // This endpoint adds a new customer.
@@ -139,7 +139,7 @@ namespace Tabeekh.Controllers
             _context.Cust_Chief_Reviews.Add(review);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetChefs), new { id = chiefId }, review);
+            return CreatedAtAction(nameof(GetChiefReviews), new { id = chiefId }, review);
         }
 
         // his endpoint retrieves all reviews for a specific chief.

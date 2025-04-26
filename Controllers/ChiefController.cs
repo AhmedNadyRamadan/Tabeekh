@@ -11,10 +11,10 @@ namespace Tabeekh.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class CheifController : ControllerBase
+    public class ChiefController : ControllerBase
     {
         private readonly TabeekhDBContext _context;
-        public CheifController(TabeekhDBContext context)
+        public ChiefController(TabeekhDBContext context)
         {
             _context = context;
         }
@@ -152,7 +152,7 @@ namespace Tabeekh.Controllers
 
             _context.Chiefs.Remove(chief);
             await _context.SaveChangesAsync();
-            return NoContent();
+            return Ok("Chief deleted successfully");
         }
 
         // GET: api/Chiefs/top10
@@ -255,6 +255,13 @@ namespace Tabeekh.Controllers
             _context.Meals.Remove(meal);
             await _context.SaveChangesAsync();
             return NoContent();
+        }
+        [HttpGet("{chiefId}/Reviews")]
+        public async Task<IActionResult> GetChiefReviews(Guid chiefId)
+        {
+            var Reviews = await _context.Cust_Chief_Reviews.Where(r=>r.Chief_Id == chiefId).ToListAsync();
+            
+            return Ok(Reviews);
         }
 
 
