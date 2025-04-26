@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 using Tabeekh.Models;
 using Tabeekh.Middlewares;
+using Stripe;
 
 namespace lab1
 {
@@ -23,6 +24,12 @@ namespace lab1
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("TabeekhDB"));
             });
+
+            // Stripe payment
+            builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
+
+            StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
+
 
             builder.Services.AddCors(options =>
             {

@@ -1032,5 +1032,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Tabeekh.Controllers.StripeController",
+    "Method": "CreateCheckoutSession",
+    "RelativePath": "api/Stripe/create-checkout-session",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Tabeekh.Models.StripeMealOrderRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

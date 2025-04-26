@@ -2242,6 +2242,23 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "Stripe.net/48.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "System.Configuration.ConfigurationManager": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Stripe.net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Stripe.net.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore.Swagger/8.1.0": {
         "type": "package",
         "dependencies": {
@@ -6457,6 +6474,34 @@
         "scalar.aspnetcore.nuspec"
       ]
     },
+    "Stripe.net/48.0.2": {
+      "sha512": "Ygn4kVkhNL9acuHTYZptbbjVetagBbvbrCt3uAkeeEJgYo62xaMHGb4ljvKpeyPmGyGsLnIOqH/z6s9eh+xZug==",
+      "type": "package",
+      "path": "stripe.net/48.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "icon.png",
+        "lib/net461/Stripe.net.dll",
+        "lib/net461/Stripe.net.xml",
+        "lib/net5.0/Stripe.net.dll",
+        "lib/net5.0/Stripe.net.xml",
+        "lib/net6.0/Stripe.net.dll",
+        "lib/net6.0/Stripe.net.xml",
+        "lib/net7.0/Stripe.net.dll",
+        "lib/net7.0/Stripe.net.xml",
+        "lib/net8.0/Stripe.net.dll",
+        "lib/net8.0/Stripe.net.xml",
+        "lib/netcoreapp3.1/Stripe.net.dll",
+        "lib/netcoreapp3.1/Stripe.net.xml",
+        "lib/netstandard2.0/Stripe.net.dll",
+        "lib/netstandard2.0/Stripe.net.xml",
+        "stripe.net.48.0.2.nupkg.sha512",
+        "stripe.net.nuspec"
+      ]
+    },
     "Swashbuckle.AspNetCore.Swagger/8.1.0": {
       "sha512": "TRpBDdWh/6IzXHOLKVEuZSuhcdc8OIwhr8dyLnWvEh6FO4f0KiATAzr8yzHspcCFzCc/CONpvUCq4DzazpP6Og==",
       "type": "package",
@@ -7602,6 +7647,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.4",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 9.0.0",
       "Scalar.AspNetCore >= 2.1.12",
+      "Stripe.net >= 48.0.2",
       "Swashbuckle.AspNetCore.Swagger >= 8.1.0",
       "Swashbuckle.AspNetCore.SwaggerGen >= 8.1.0",
       "Swashbuckle.AspNetCore.SwaggerUI >= 8.1.0"
@@ -7689,6 +7735,10 @@
           "Scalar.AspNetCore": {
             "target": "Package",
             "version": "[2.1.12, )"
+          },
+          "Stripe.net": {
+            "target": "Package",
+            "version": "[48.0.2, )"
           },
           "Swashbuckle.AspNetCore.Swagger": {
             "target": "Package",
