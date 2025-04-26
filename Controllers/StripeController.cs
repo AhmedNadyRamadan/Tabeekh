@@ -21,7 +21,7 @@ namespace Tabeekh.Controllers
         {
             var domain = "http://localhost:4200";
             var lineItems = new List<SessionLineItemOptions>();
-            decimal totalPrice = 0; // Variable to track total price of the order
+            decimal totalPrice = 0; 
 
             foreach (var item in request.Items)
             {
@@ -29,8 +29,8 @@ namespace Tabeekh.Controllers
                 if (meal == null || !meal.Available)
                     return BadRequest($"Meal with ID {item.MealId} is not available.");
 
-                var itemTotalPrice = meal.Price * item.Quantity; // Calculate total price for the item
-                totalPrice += itemTotalPrice; // Add to the total order price
+                var itemTotalPrice = meal.Price * item.Quantity; 
+                totalPrice += itemTotalPrice; 
 
                 lineItems.Add(new SessionLineItemOptions
                 {
