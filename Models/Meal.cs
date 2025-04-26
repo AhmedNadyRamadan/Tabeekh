@@ -15,7 +15,7 @@ namespace Tabeekh.Models
     public class Meal
     {
 
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string Name { get; set; }
         public byte[] Photo { get; set; }
         public int Prepration_Time { get; set; }
@@ -34,6 +34,8 @@ namespace Tabeekh.Models
         public Guid Chief_Id { get; set; }
         [JsonIgnore]
         public Chief? Chief { get; set; }
+
+
 
     }
 }

@@ -9,13 +9,8 @@
     "Parameters": [
       {
         "Name": "user",
-        "Type": "Tabeekh.DTOs.UserDTO",
+        "Type": "Tabeekh.DTOs.ChangePassDTO",
         "IsRequired": true
-      },
-      {
-        "Name": "newPassword",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -64,6 +59,16 @@
   },
   {
     "ContainingType": "Tabeekh.Controllers.AuthController",
+    "Method": "Logout",
+    "RelativePath": "api/Auth/Logout",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Tabeekh.Controllers.AuthController",
     "Method": "Register",
     "RelativePath": "api/Auth/Register",
     "HttpMethod": "POST",
@@ -85,7 +90,23 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "limit",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "nameFilter",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[Tabeekh.Models.Chief, Tabeekh, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -294,7 +315,7 @@
   {
     "ContainingType": "Tabeekh.Controllers.CheifController",
     "Method": "GetChiefByName",
-    "RelativePath": "api/Cheif/name/{name}",
+    "RelativePath": "api/Cheif/{name}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -303,6 +324,37 @@
         "Name": "name",
         "Type": "System.String",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Tabeekh.Models.Chief, Tabeekh, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Tabeekh.Controllers.CheifController",
+    "Method": "GetAllChiefs",
+    "RelativePath": "api/Cheif/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "limit",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -708,7 +760,28 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "limit",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "category",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[Tabeekh.Models.Meal, Tabeekh, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",

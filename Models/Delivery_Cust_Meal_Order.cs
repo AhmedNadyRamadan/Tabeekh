@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace Tabeekh.Models
@@ -19,6 +20,10 @@ namespace Tabeekh.Models
         [Required]
         public float Quantity { get; set; }
         public string? Note { get; set; }
+        [JsonIgnore]
+        public Customer? Customer { get; set; }
+        [JsonIgnore]
+        public Meal? Meal { get; set; }
 
     }
 }

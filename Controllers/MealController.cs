@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Text.Json;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Tabeekh.Models;
@@ -17,13 +18,54 @@ namespace Tabeekh.Controllers
 
         // Get all meals
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Meal>>> GetAllMeals()
+        public async Task<ActionResult<IEnumerable<Meal>>> GetAllMeals(
+            [FromQuery] int pageNumber,
+            [FromQuery] int limit,
+            [FromQuery] string name = "",
+            [FromQuery] string category = ""
+            
+            )
         {
-            var meals = await _context.Meals.ToListAsync();
-            //if (meals == null || !meals.Any())
-            //{
-            //    return NotFound(new { message = "No meals found." });
-            //}
+            if (pageNumber <= 0 || limit <= 0)
+            {
+                return BadRequest(new { message = "Page number and limit must be greater than zero." });
+            }
+
+            IQueryable<Meal> query = _context.Meals;
+            
+
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                query = query.Where(m => m.Name.Contains(name));
+            }
+
+            if (!string.IsNullOrWhiteSpace(category))
+            {
+                var cat = await _context.Categories.FirstOrDefaultAsync(c=>c.Name.Contains(category));
+                if(cat == null){
+                    return BadRequest("wrong category");
+                }
+                var mealsWithCat = await _context.Meals_Categories.Where(m=>m.CategoryId == cat.Id).Select(m=>m.MealId).ToListAsync();
+                query = query.Where(m=>mealsWithCat.Contains(m.Id));
+            }
+
+            var totalMeals = await query.CountAsync();
+
+            var meals = await query
+                .Skip(limit * (pageNumber - 1))
+                .Take(limit)
+                .ToListAsync();
+
+            var paginationMetadata = new
+            {
+                totalCount = totalMeals,
+                pageNumber,
+                pageSize = limit,
+                totalPages = (int)Math.Ceiling(totalMeals / (double)limit)
+            };
+
+            Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(paginationMetadata));
+
             return Ok(meals);
         }
 
@@ -99,5 +141,6 @@ namespace Tabeekh.Controllers
 
             return Ok(reviews);
         }
+        
     }
 }

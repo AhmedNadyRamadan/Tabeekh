@@ -1,10 +1,12 @@
-﻿using System.IdentityModel.Tokens.Jwt;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -18,10 +20,10 @@ namespace Tabeekh.Controllers
     public class AuthController(TabeekhDBContext _tabeekhDB , IConfiguration config) : ControllerBase
     {
         [HttpPost("Register")]
-        public IActionResult Register([FromBody]UserRegisterDTO EndUser)
+        public async Task<IActionResult> Register([FromBody]UserRegisterDTO EndUser)
         {
             EndUser userToDB = new EndUser();
-            var userDB = _tabeekhDB.EndUsers.FirstOrDefault(u=>u.Email == EndUser.Email || u.Username == EndUser.Username);
+            var userDB = await _tabeekhDB.EndUsers.FirstOrDefaultAsync(u=>u.Email == EndUser.Email || u.Username == EndUser.Username);
             if (userDB != null) 
             { 
                 return BadRequest(new { message = "Username or Email is already taken"});
@@ -49,10 +51,11 @@ namespace Tabeekh.Controllers
             _tabeekhDB.SaveChanges();
             return Ok(new { message = " registered successfully", userToDB });
         }
+
         [HttpPost("Login")]
-        public IActionResult Login([FromBody] UserDTO user)
+        public async Task<IActionResult> Login([FromBody] UserDTO user)
         {
-            var userDB = _tabeekhDB.EndUsers.FirstOrDefault(u => u.Email == user.Email);
+            var userDB = await _tabeekhDB.EndUsers.FirstOrDefaultAsync(u => u.Email == user.Email);
             
             if (userDB == null)
             {
@@ -68,13 +71,29 @@ namespace Tabeekh.Controllers
             {
                 return BadRequest("Invalid password");
             }
-            return Ok(GetToken(userDB));
+            var token = GetToken(userDB);
+            Response.Cookies.Append("X-Access-Token", token, new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.Strict });
+
+            return Ok(token);
+        }
+
+        [HttpGet("Logout")]
+        public async Task<IActionResult> Logout()
+        {       
+            Response.Cookies.Append("X-Access-Token", "", new CookieOptions
+            {
+                Expires = DateTimeOffset.UtcNow.AddDays(-1),
+                HttpOnly = true,
+                SameSite = SameSiteMode.Strict
+            });
+
+            return Ok("You logged out successfully");
         }
 
         [HttpDelete("Delete")]
-        public IActionResult DeleteUser([FromBody] UserDTO user)
+        public async Task<IActionResult> DeleteUser([FromBody] UserDTO user)
         {
-            var userDB = _tabeekhDB.EndUsers.FirstOrDefault(u => u.Email == user.Email);
+            var userDB = await _tabeekhDB.EndUsers.FirstOrDefaultAsync(u => u.Email == user.Email);
 
             if (userDB == null)
             {
@@ -92,9 +111,9 @@ namespace Tabeekh.Controllers
         }
 
         [HttpGet("GetUsers")]
-        public IActionResult GetUsers()
+        public async Task<IActionResult> GetUsers()
         {
-            var users = _tabeekhDB.EndUsers.ToList();
+            var users = await _tabeekhDB.EndUsers.ToListAsync();
             if (users == null || !users.Any())
             {
                 return NotFound("No users found.");
@@ -102,22 +121,23 @@ namespace Tabeekh.Controllers
             return Ok(users);
         }
         [HttpPost("Change-password")]
-        public IActionResult ChangePassword([FromBody] UserDTO user, string newPassword)
+        public async Task<IActionResult> ChangePassword(
+            [FromBody] ChangePassDTO user)
         {
 
            
-            var userDB = _tabeekhDB.EndUsers.FirstOrDefault(u=>u.Email == user.Email);
+            var userDB = await _tabeekhDB.EndUsers.FirstOrDefaultAsync(u=>u.Email == user.email);
             if (userDB == null )
             {
                 return NotFound("No user found");
             }
-            var verifyPassword = new PasswordHasher<EndUser>().VerifyHashedPassword(userDB,userDB.Password,user.Password);
+            var verifyPassword = new PasswordHasher<EndUser>().VerifyHashedPassword(userDB,userDB.Password,user.password);
             if (verifyPassword == PasswordVerificationResult.Failed)
             {
                 return NotFound("Invalid email or password");
             }
 
-            var hashPassword = new PasswordHasher<EndUser>().HashPassword(userDB, newPassword);
+            var hashPassword = new PasswordHasher<EndUser>().HashPassword(userDB, user.newPassword);
             userDB.Password = hashPassword;
             _tabeekhDB.Update(userDB);
             _tabeekhDB.SaveChanges();
