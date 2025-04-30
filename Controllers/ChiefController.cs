@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Tabeekh.DTOs;
 using Tabeekh.Models;
 
 namespace Tabeekh.Controllers
@@ -87,7 +88,7 @@ namespace Tabeekh.Controllers
         }
 
         // Get Meals by Chief ID
-        [HttpGet("{id}/meals")]
+        [HttpGet("meals/{id}")]
         public async Task<ActionResult<IEnumerable<Meal>>> GetMealsByChiefId(Guid id)
         {
             var chief = await _context.Chiefs
@@ -189,7 +190,7 @@ namespace Tabeekh.Controllers
 
 
         // Add Meal to Chief
-        [HttpPost("{chiefId}/meals")]
+        [HttpPost("Meals/{chiefId}")]
         public async Task<ActionResult<Meal>> AddMealToChief(Guid chiefId, [FromBody] Meal meal)
         {
             if (meal == null)
@@ -252,12 +253,37 @@ namespace Tabeekh.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         } 
-        [HttpGet("{chiefId}/Reviews")]
-        public async Task<IActionResult> GetChiefReviews(Guid chiefId)
+        [HttpGet("Reviews/{chiefId}")]
+        public async Task<ActionResult<IEnumerable<ReviewDTO>>> GetChiefReviews(Guid chiefId)
         {
+            List<ReviewDTO> reviewsList = new List<ReviewDTO>();
+            ReviewDTO review = new ReviewDTO();
             var Reviews = await _context.Cust_Chief_Reviews.Where(r=>r.Chief_Id == chiefId).ToListAsync();
             
-            return Ok(Reviews);
+            foreach (var rev in Reviews)
+            {
+                var customer = _context.Customers.FirstOrDefault(c=>c.Id == rev.Customer_Id);
+                review.CustomerName = customer.Name;
+                review.Comment = rev.Comment;
+                review.Rate = rev.Rate;
+                reviewsList.Add(review);
+                review = new ReviewDTO();
+            }
+            return Ok(reviewsList);
+        }
+        [HttpGet("Rate/{chiefId}")]
+        public async Task<IActionResult> GetChiefRate(Guid chiefId)
+        {
+            var Rates = await _context.Cust_Chief_Reviews.Where(r=>r.Chief_Id == chiefId).Select(r=>r.Rate).ToListAsync();
+            float sum = 0;
+            float AvgRate = 0;
+
+            foreach (var rate in Rates)
+            {
+                sum +=rate;
+            }
+            AvgRate = sum/ Rates.Count;
+            return Ok(AvgRate);
         }
 
 

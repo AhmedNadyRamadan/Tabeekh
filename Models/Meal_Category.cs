@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +15,9 @@ namespace Tabeekh.Models
         public Guid MealId { get; set; }
         [ForeignKey("Category")]
         public Guid CategoryId { get; set; }
+        [JsonIgnore]
         public Meal Meal { get; set; }
+        [JsonIgnore]
         public Category Category { get; set; }
     }
 }

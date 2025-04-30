@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using OpenAI.Chat;
 using Tabeekh.Models;
 using DotNetEnv;
+using Tabeekh.DTOs;
 
 namespace Tabeekh.Controllers
 {
@@ -117,7 +118,7 @@ namespace Tabeekh.Controllers
         }
 
         // Get meals by chief name
-        [HttpGet("chief/name/{chiefName}")]
+        [HttpGet("chief/{chiefName}")]
         public async Task<ActionResult<IEnumerable<Meal>>> GetMealsByChiefName(string chiefName)
         {
             var meals = await _context.Meals
@@ -131,24 +132,58 @@ namespace Tabeekh.Controllers
         }
 
         // Get all reviews for a specific meal
-        [HttpGet("GetMealReviews/{mealId:guid}")]
-        public async Task<ActionResult<IEnumerable<Cust_Meal_Review>>> GetMealReviews(Guid mealId)
+        [HttpGet("Reviews/{mealId:guid}")]
+        public async Task<ActionResult<IEnumerable<ReviewDTO>>> GetMealReviews(Guid mealId)
         {
-            var mealExists = await _context.Meals.AnyAsync(m => m.Id == mealId);
-            if (!mealExists)
-            {
-                return NotFound(new { message = "Meal not found." });
-            }
-
-            var reviews = await _context.Cust_Meal_Reviews
+            var Reviews = await _context.Cust_Meal_Reviews
                 .Where(r => r.Meal_Id == mealId)
                 .ToListAsync();
 
-            return Ok(reviews);
+             List<ReviewDTO> reviewsList = new List<ReviewDTO>();
+            ReviewDTO review = new ReviewDTO();
+
+           foreach (var rev in Reviews)
+            {
+                var customer = _context.Customers.FirstOrDefault(c=>c.Id == rev.Customer_Id);
+                review.CustomerName = customer.Name;
+                review.Comment = rev.Comment;
+                review.Rate = rev.Rate;
+                reviewsList.Add(review);
+                review = new ReviewDTO();
+            }
+
+            
+
+            return Ok(reviewsList);
+        }
+
+          [HttpGet("Categories/{mealId:guid}")]
+        public async Task<ActionResult<IEnumerable<Meal_Category>>> AddCategoryToMeal(Guid mealId)
+        {
+            var CateDB = await _context.Meals_Categories.Where(c=>c.MealId == mealId).ToListAsync();
+            return Ok(CateDB);
+        }
+
+        [HttpPost("Categories/{mealId:guid}")]
+        public async Task<IActionResult> AddCategoryToMeal(Guid mealId, [FromBody] Category category )
+        {
+            Meal_Category mealCat = new Meal_Category();
+            mealCat.MealId = mealId;
+
+            var CateDB = await _context.Categories.FirstOrDefaultAsync(c=>c.Name == category.Name);
+            if(CateDB == null){
+                _context.Categories.Add(category);
+                mealCat.CategoryId = category.Id;
+            }else{
+                mealCat.CategoryId = CateDB.Id;
+            }
+            _context.Meals_Categories.Add(mealCat);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(AddCategoryToMeal),new {id = mealId},CateDB ?? category);
         }
         
         [HttpGet("RecommendFood")]
-        public  ActionResult RecommendFood(string category)
+        public async Task<ActionResult> RecommendFood(string category)
         {
             var meals = _context.Meals.ToList();
             // give it a prompt to recommend a meal from the list of meals above based on the category provide the meals list to the promt to choose from and make the response has an array of the recommended meals
@@ -165,6 +200,19 @@ namespace Tabeekh.Controllers
             return Ok(completion.Content[0].Text);
         }
         
-        
+        [HttpGet("Rate/{mealId}")]
+        public async Task<IActionResult> GetChiefRate(Guid mealId)
+        {
+            var Rates = await _context.Cust_Meal_Reviews.Where(r=>r.Meal_Id == mealId).Select(r=>r.Rate).ToListAsync();
+            float sum = 0;
+            float AvgRate = 0;
+
+            foreach (var rate in Rates)
+            {
+                sum +=rate;
+            }
+            AvgRate = sum/ Rates.Count;
+            return Ok(AvgRate);
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace Tabeekh.Models
         public Guid Chief_Id { get; set; }
         [ForeignKey("Customer")]
         public Guid Customer_Id { get; set; }
-
+        [Range(0,5,ErrorMessage ="rate should be between 0 to 5")]
         public int Rate { get; set; }
         public string Comment { get; set; }
         [JsonIgnore]

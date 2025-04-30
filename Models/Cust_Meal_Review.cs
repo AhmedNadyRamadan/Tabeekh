@@ -13,7 +13,7 @@ namespace Tabeekh.Models
         public Guid Meal_Id { get; set; }
         [ForeignKey("Customer")]
         public Guid Customer_Id { get; set; }
-        [Range(1, 5, ErrorMessage = "Rate must be between 1 and 5")]
+        [Range(0, 5, ErrorMessage = "Rate must be between 0 and 5")]
         public int Rate { get; set; }
         public string Comment { get; set; }
         [JsonIgnore]

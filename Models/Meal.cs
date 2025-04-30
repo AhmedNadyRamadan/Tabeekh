@@ -46,8 +46,8 @@ namespace Tabeekh.Models
         [JsonIgnore]
         public Chief? Chief { get; set; }
 
-        [EnumDataType(typeof(Day), ErrorMessage = "Invalid day entry")]
-        public Day Day { get; set; }
+        // [EnumDataType(typeof(Day), ErrorMessage = "Invalid day entry")]
+        public string Days { get; set; }
 
     }
 }
