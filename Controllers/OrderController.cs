@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Tabeekh.DTOs;
 using Tabeekh.Models;
 
 namespace Tabeekh.Controllers
@@ -24,7 +25,7 @@ namespace Tabeekh.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Delivery_Cust_Meal_Order>>> GetOrders()
         {
-            return await _context.Delivery_Cust_Meal_Orders.ToListAsync();
+            return await _context.Delivery_Cust_Meal_Orders.Include(o=>o.Order_items).ToListAsync();
         }
 
         // GET: api/Order/ID
@@ -76,20 +77,26 @@ namespace Tabeekh.Controllers
         // POST: api/Order
         // This endpoint adds a new order.
         [HttpPost]
-        public async Task<ActionResult<Delivery_Cust_Meal_Order>> AddOrder(Delivery_Cust_Meal_Order delivery_Cust_Meal_Order)
+        public async Task<ActionResult<OrderDTO>> AddOrder(OrderDTO order)
         {
-
-
+            Delivery_Cust_Meal_Order OrderDB = new Delivery_Cust_Meal_Order();
             var delivery = _context.Deliveries.FirstOrDefault(d => d.Available == true);
             if(delivery == null)
             {
                 return BadRequest("there is no free deliveries");
             }
-            delivery_Cust_Meal_Order.Delivery_Id = delivery.Id;
-            delivery_Cust_Meal_Order.Date = DateTime.Now;
-            _context.Delivery_Cust_Meal_Orders.Add(delivery_Cust_Meal_Order);
+
+            OrderDB.Delivery_Id = delivery.Id;
+            OrderDB.Address = order.Address;
+            OrderDB.Price = order.Price;
+            OrderDB.Customer_Id = order.Customer_Id;
+            OrderDB.Date = DateTime.Now;
+            OrderDB.Address = order.Address;
+            OrderDB.Order_items = order.Items;
+
+            _context.Delivery_Cust_Meal_Orders.Add(OrderDB);
             await _context.SaveChangesAsync();
-            return CreatedAtAction("GetOrder", new { id = delivery_Cust_Meal_Order.Id }, delivery_Cust_Meal_Order);
+            return CreatedAtAction("GetOrder", new { id = OrderDB.Id }, OrderDB.Id);
         }
 
         // DELETE: api/Order/ID
@@ -109,16 +116,16 @@ namespace Tabeekh.Controllers
             return NoContent();
         }
 
-        [HttpGet("GetOrderDetails")]
-        public async Task<ActionResult<IEnumerable<Order_items>>> GetOrderDetails()
-        {
-            return await _context.Order_Items.ToListAsync();
-        }
+        // [HttpGet("GetOrderDetails")]
+        // public async Task<ActionResult<IEnumerable<Order_items>>> GetOrderDetails()
+        // {
+        //     return await _context.Delivery_Cust_Meal_Orders.Select(o=>o.Items).ToListAsync();
+        // }
 
         [HttpGet("GetOrderDetails/{id}")]
         public async Task<ActionResult<IEnumerable<Order_items>>> GetOrderDetails(Guid id)
         {
-            var order = await _context.Order_Items.FirstOrDefaultAsync(o => o.OrderId == id);
+            var order = await _context.Delivery_Cust_Meal_Orders.Select(o=>new {o.Order_items,o.Id}).FirstOrDefaultAsync(o => o.Id == id);
             if (order == null)
             {
                 return Ok();

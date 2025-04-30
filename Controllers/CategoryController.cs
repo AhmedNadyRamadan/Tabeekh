@@ -32,6 +32,15 @@ namespace Tabeekh.Controllers
 
             return CreatedAtAction(nameof(GetCategoryById), new { id = category.Id }, category);
         }
+
+        [HttpGet]
+        public async Task<ActionResult<Category>> GetCategories()
+        {
+            var category = await _context.Categories.ToListAsync();
+
+            return Ok(category);
+        }
+
         [HttpGet("{Id:guid}")]
         public async Task<ActionResult<Category>> GetCategoryById(Guid Id)
         {
@@ -44,6 +53,7 @@ namespace Tabeekh.Controllers
 
             return Ok(category);
         }
+
         [HttpDelete("{Id:guid}")]
         public async Task<ActionResult<Category>> DeleteById(Guid Id)
         {

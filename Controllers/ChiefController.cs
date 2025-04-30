@@ -94,10 +94,6 @@ namespace Tabeekh.Controllers
                 .Include(c => c.Meals)
                 .FirstOrDefaultAsync(c => c.Id == id);
 
-            //if (chief == null)
-            //{
-            //    return NotFound("Chief not found.");
-            //}
 
             return Ok(chief.Meals);
         }
@@ -243,8 +239,8 @@ namespace Tabeekh.Controllers
         }
 
         // Delete Meal
-        [HttpDelete("{chiefId}/meals/{mealId}")]
-        public async Task<IActionResult> DeleteMeal(Guid chiefId, Guid mealId)
+        [HttpDelete("meals/{mealId}")]
+        public async Task<IActionResult> DeleteMeal( Guid mealId)
         {
             var meal = await _context.Meals.FindAsync(mealId);
             if (meal == null)
@@ -255,7 +251,7 @@ namespace Tabeekh.Controllers
             _context.Meals.Remove(meal);
             await _context.SaveChangesAsync();
             return NoContent();
-        }
+        } 
         [HttpGet("{chiefId}/Reviews")]
         public async Task<IActionResult> GetChiefReviews(Guid chiefId)
         {

@@ -123,7 +123,7 @@ namespace Tabeekh.Controllers
             _context.Cust_Meal_Reviews.Add(review);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetMealReviews), new { mealId }, review);
+            return Ok(review);
         }
 
         // POST: api/Customers/chiefs/{chiefId}/reviews
@@ -139,35 +139,8 @@ namespace Tabeekh.Controllers
             _context.Cust_Chief_Reviews.Add(review);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetChiefReviews), new { id = chiefId }, review);
+            return Ok(review);
         }
 
-        // his endpoint retrieves all reviews for a specific chief.
-        [HttpGet("chiefs/{chiefId:guid}/reviews")]
-        public async Task<ActionResult<IEnumerable<Cust_Chief_Review>>> GetChiefReviews(Guid chiefId)
-        {
-            var chiefExists = await _context.Chiefs.AnyAsync(c => c.Id == chiefId);
-            if (!chiefExists)
-                return NotFound(new { message = "Chief not found." });
-            var reviews = await _context.Cust_Chief_Reviews
-                .Where(r => r.Chief_Id == chiefId)
-                .ToListAsync();
-            return Ok(reviews);
-        }
-
-        // This endpoint retrieves all reviews for a specific meal.  
-        [HttpGet("meals/{mealId:guid}/reviews")]
-        public async Task<ActionResult<IEnumerable<Cust_Meal_Review>>> GetMealReviews(Guid mealId)
-        {
-            var mealExists = await _context.Meals.AnyAsync(m => m.Id == mealId);
-            if (!mealExists)
-                return NotFound(new { message = "Meal not found." });
-
-            var reviews = await _context.Cust_Meal_Reviews
-                .Where(r => r.Meal_Id == mealId)
-                .ToListAsync();
-
-            return Ok(reviews);
-        }
     }
 }

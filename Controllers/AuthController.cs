@@ -23,6 +23,7 @@ namespace Tabeekh.Controllers
         public async Task<IActionResult> Register([FromBody]UserRegisterDTO EndUser)
         {
             EndUser userToDB = new EndUser();
+            Chief Chief = new Chief();
             var userDB = await _tabeekhDB.EndUsers.FirstOrDefaultAsync(u=>u.Email == EndUser.Email || u.Username == EndUser.Username);
             if (userDB != null) 
             { 
@@ -46,7 +47,15 @@ namespace Tabeekh.Controllers
             userToDB.Role = EndUser.Role;
             userToDB.Id = EndUser.Id;
             userToDB.Password = hashedPassword;
-            
+
+            if(EndUser.Role == 0){
+            Chief.Id = EndUser.Id;
+            Chief.Email = EndUser.Email;
+            Chief.Name = EndUser.Username;
+            Chief.Phone = EndUser.Phone;
+            _tabeekhDB.Chiefs.Add(Chief);
+            }
+
             _tabeekhDB.EndUsers.Add(userToDB);
             _tabeekhDB.SaveChanges();
             return Ok(new { message = " registered successfully", userToDB });

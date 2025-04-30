@@ -87,7 +87,7 @@ namespace Tabeekh.Controllers
         }
 
         // Get meals by name
-        [HttpGet("name/{name}")]
+        [HttpGet("{name}")]
         public async Task<ActionResult<IEnumerable<Meal>>> GetMealsByName(string name)
         {
             var meals = await _context.Meals

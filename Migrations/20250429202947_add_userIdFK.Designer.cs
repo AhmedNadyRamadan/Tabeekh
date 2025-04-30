@@ -12,8 +12,8 @@ using Tabeekh.Models;
 namespace Tabeekh.Migrations
 {
     [DbContext(typeof(TabeekhDBContext))]
-    [Migration("20250426011710_order_items_table")]
-    partial class order_items_table
+    [Migration("20250429202947_add_userIdFK")]
+    partial class add_userIdFK
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,6 +59,9 @@ namespace Tabeekh.Migrations
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TotalRate")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -180,6 +183,10 @@ namespace Tabeekh.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("Customer_Id")
                         .HasColumnType("uniqueidentifier");
 
@@ -189,13 +196,14 @@ namespace Tabeekh.Migrations
                     b.Property<Guid>("Delivery_Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Note")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 
                     b.HasIndex("Customer_Id");
+
+                    b.HasIndex("Delivery_Id");
 
                     b.ToTable("Delivery_Cust_Meal_Orders");
                 });
@@ -302,14 +310,17 @@ namespace Tabeekh.Migrations
                     b.Property<Guid>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
+                    b.Property<float>("Quantity")
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("Order_Items");
+                    b.ToTable("Order_items");
                 });
 
             modelBuilder.Entity("Tabeekh.Models.Cust_Chief_Review", b =>
@@ -358,7 +369,15 @@ namespace Tabeekh.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Tabeekh.Models.Delivery", "Delivery")
+                        .WithMany()
+                        .HasForeignKey("Delivery_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Customer");
+
+                    b.Navigation("Delivery");
                 });
 
             modelBuilder.Entity("Tabeekh.Models.Meal", b =>
@@ -393,18 +412,23 @@ namespace Tabeekh.Migrations
 
             modelBuilder.Entity("Tabeekh.Models.Order_items", b =>
                 {
-                    b.HasOne("Tabeekh.Models.Delivery_Cust_Meal_Order", "Order")
-                        .WithMany()
+                    b.HasOne("Tabeekh.Models.Delivery_Cust_Meal_Order", "Delivery_Cust_Meal_Order")
+                        .WithMany("Order_items")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Order");
+                    b.Navigation("Delivery_Cust_Meal_Order");
                 });
 
             modelBuilder.Entity("Tabeekh.Models.Chief", b =>
                 {
                     b.Navigation("Meals");
+                });
+
+            modelBuilder.Entity("Tabeekh.Models.Delivery_Cust_Meal_Order", b =>
+                {
+                    b.Navigation("Order_items");
                 });
 #pragma warning restore 612, 618
         }

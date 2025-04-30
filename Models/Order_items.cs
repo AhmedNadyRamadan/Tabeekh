@@ -9,14 +9,18 @@ namespace Tabeekh.Models
 {
     public class Order_items
     {
-        
+        // name
+        // price
+        [JsonIgnore]
+
         public Guid Id { get; set; }
         public Guid MealId { get; set; }
-        public int Quantity { get; set; }
-        [ForeignKey("Order")]
+        public float Quantity { get; set; }
+        [JsonIgnore ]
+        [ForeignKey("Delivery_Cust_Meal_Order")]
         public Guid OrderId { get; set; }
-        public string? Note { get; set; }
-
-        public Delivery_Cust_Meal_Order Order { get; set; }
+        [JsonIgnore]
+        public Delivery_Cust_Meal_Order? Delivery_Cust_Meal_Order { get; set; }
+        public float Price { get; set; }
     }
 }

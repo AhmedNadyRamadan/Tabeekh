@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Tabeekh.Models
 {
@@ -17,5 +19,7 @@ namespace Tabeekh.Models
         [Required]
         [RegularExpression("^(010|011|012|015)[0-9]{8}$", ErrorMessage = "Phone number should be in Egyption format")]
         public string Phone { get; set; }
+
+
     }
 }
