@@ -186,14 +186,36 @@ namespace Tabeekh.Controllers
         public async Task<ActionResult> RecommendFood(string category)
         {
             var meals = _context.Meals.ToList();
-            // give it a prompt to recommend a meal from the list of meals above based on the category provide the meals list to the promt to choose from and make the response has an array of the recommended meals
-            
             string prompt = $"Please recommend a meal from the following list based on the category {category} : ";
             foreach (var meal in meals)
             {
                 prompt += $"{meal} , ";
             }
-            prompt += $"Please provide the recommended meals in an array format like this: [meal1 details, meal2 details, meal3 details]";
+            prompt += $"Please provide the recommended meals in an array format like this: [meal1 details, meal2 details, meal3 details] only make the response contain the array not json recommend meals as i want to use it in my frontend app";
+
+            ChatClient client = new(model: "gpt-4o-mini", apiKey: _config.GetValue<string>("Application:OpenAi_Api_key"));
+            ChatCompletion completion = client.CompleteChat(prompt);
+            return Ok(completion.Content[0].Text);
+        }
+
+        [HttpGet("RecommendFoodBasedOnHistory/{customerId:guid}")]
+        public async Task<ActionResult> RecommendFoodBasedOnHistory(Guid customerId)
+        {
+            var orders = _context.Delivery_Cust_Meal_Orders.Include(o=>o.Order_items).Where(d=>d.Customer_Id == customerId).ToList();
+            string prompt = $"Please recommend a meal from the following list based on the history of orders provided  : ";
+            List<string> meals = new List<string>();
+            foreach (var order in orders)
+            {
+                foreach (var mealItem in order.Order_items){
+                var meal = await _context.Meals.FirstOrDefaultAsync(m=> m.Id == mealItem.MealId);
+                meals.Add(meal.Name);
+                }
+            }
+            foreach (var item in meals)
+            {
+                prompt += $"{item}, ";
+            }
+            prompt += $"Please provide the recommended meals in an array format like this: [meal1 details, meal2 details, meal3 details] only make the response contain the array not json like and add more details about each meal in a separate object and if an order is duplicated please ignore it then recommend one or more extra meals  in addition to the provided meals as I want to use it in my frontend app";
 
             ChatClient client = new(model: "gpt-4o-mini", apiKey: _config.GetValue<string>("Application:OpenAi_Api_key"));
             ChatCompletion completion = client.CompleteChat(prompt);

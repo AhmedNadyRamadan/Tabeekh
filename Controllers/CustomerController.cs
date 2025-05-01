@@ -44,6 +44,7 @@ namespace Tabeekh.Controllers
                 return NotFound(new { message = "Customer not found." });
 
             var orders = await _context.Delivery_Cust_Meal_Orders
+                .Include(o=>o.Order_items)
                 .Where(o => o.Customer_Id == id)
                 .ToListAsync();
 
