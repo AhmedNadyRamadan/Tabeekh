@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using NuGet.Protocol;
 using Tabeekh.DTOs;
 using Tabeekh.Models;
 
@@ -46,8 +47,10 @@ namespace Tabeekh.Controllers
             userToDB.Phone = EndUser.Phone;
             userToDB.Role = EndUser.Role;
             userToDB.Id = EndUser.Id;
+            userToDB.Address = EndUser.Address;
             userToDB.Password = hashedPassword;
-
+            userToDB.Photo = EndUser.Photo;
+            
             if(EndUser.Role == 0){
             Chief.Id = EndUser.Id;
             Chief.Email = EndUser.Email;
@@ -82,8 +85,9 @@ namespace Tabeekh.Controllers
             }
             var token = GetToken(userDB);
             Response.Cookies.Append("X-Access-Token", token, new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.Strict });
-
-            return Ok(token);
+            
+            
+            return Ok(new {token});
         }
 
         [HttpGet("Logout")]

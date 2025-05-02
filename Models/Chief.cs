@@ -26,6 +26,5 @@ namespace Tabeekh.Models
         [JsonIgnore]
         public List<Meal>? Meals { get; set; } = new List<Meal>();
 
-
     }
 }

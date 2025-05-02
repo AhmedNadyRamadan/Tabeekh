@@ -61,18 +61,18 @@ namespace Tabeekh.Controllers
                 .Skip(limit * (pageNumber - 1))
                 .Take(limit)
                 .ToListAsync();
+            var totalCount = totalMeals;
+            // var pagination = new
+            // {
+            //     totalCount = totalMeals,
+            //     pageNumber,
+            //     pageSize = limit,
+            //     totalPages = (int)Math.Ceiling(totalMeals / (double)limit)
+            // };
 
-            var paginationMetadata = new
-            {
-                totalCount = totalMeals,
-                pageNumber,
-                pageSize = limit,
-                totalPages = (int)Math.Ceiling(totalMeals / (double)limit)
-            };
+            // Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(paginationMetadata));
 
-            Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(paginationMetadata));
-
-            return Ok(meals);
+            return Ok(new{totalCount,items = meals});
         }
 
         // Get a specific meal by ID
@@ -130,6 +130,60 @@ namespace Tabeekh.Controllers
             //}
             return Ok(meals);
         }
+
+
+        [HttpGet("top10")]
+        public async Task<ActionResult<IEnumerable<object>>> GetTop10Meals()
+        {
+            var topMeals = await _context.Cust_Meal_Reviews
+                .GroupBy(r => r.Meal_Id)
+                .Select(g => new
+                {
+                    id = g.Key,
+                    name = _context.Meals.FirstOrDefault(c => c.Id == g.Key).Name,
+                    rate = g.Average(r => r.Rate),
+                    photo = _context.Meals.FirstOrDefault(u=>u.Id == g.Key).Photo,
+                    Category = _context.Meals_Categories.Include(m=>m.Category).FirstOrDefault(u=>u.MealId == g.Key).Category.Name,
+                    price = _context.Meals.FirstOrDefault(u=>u.Id == g.Key).Price,
+                    available = _context.Meals.FirstOrDefault(u=>u.Id == g.Key).Available,
+                    measure_unit = _context.Meals.FirstOrDefault(u=>u.Id == g.Key).Measure_unit,
+                    chief_name = _context.Meals.Include(m=>m.Chief).FirstOrDefault(u=>u.Id == g.Key).Chief.Name,
+                })
+                .OrderByDescending(g => g.rate)
+                .Take(10)
+                .ToListAsync();
+
+         
+            return Ok(topMeals);
+        }
+
+        [HttpGet("bestOffers")]
+        public async Task<ActionResult<IEnumerable<object>>> GetBestOffers()
+        {
+             Random random = new Random();
+            var topMeals = await _context.Cust_Meal_Reviews
+                .GroupBy(r => r.Meal_Id)
+                .Select(g => new
+                {
+                    id = g.Key,
+                    name = _context.Meals.FirstOrDefault(c => c.Id == g.Key).Name,
+                    rate = g.Average(r => r.Rate),
+                    photo = _context.Meals.FirstOrDefault(u=>u.Id == g.Key).Photo,
+                    Category = _context.Meals_Categories.Include(m=>m.Category).FirstOrDefault(u=>u.MealId == g.Key).Category.Name,
+                    oldPrice = _context.Meals.FirstOrDefault(u=>u.Id == g.Key).Price,
+                    price = _context.Meals.FirstOrDefault(u=>u.Id == g.Key).Price * (0.5 + (random.NextDouble() * 0.4)),
+                    available = _context.Meals.FirstOrDefault(u=>u.Id == g.Key).Available,
+                    measure_unit = _context.Meals.FirstOrDefault(u=>u.Id == g.Key).Measure_unit,
+                    chief_name = _context.Meals.Include(m=>m.Chief).FirstOrDefault(u=>u.Id == g.Key).Chief.Name,
+                })
+                .OrderByDescending(g => g.rate)
+                .Take(10)
+                .ToListAsync();
+
+         
+            return Ok(topMeals);
+        }
+
 
         // Get all reviews for a specific meal
         [HttpGet("Reviews/{mealId:guid}")]

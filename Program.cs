@@ -24,7 +24,7 @@ namespace lab1
             builder.Services.AddControllers();
             builder.Services.AddDbContext<TabeekhDBContext>(options =>
             {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("TabeekhDBLinux"));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("TabeekhDB"));
             });
             builder.Services.AddCors(options =>
             {

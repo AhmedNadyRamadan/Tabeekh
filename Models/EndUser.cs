@@ -18,8 +18,9 @@ namespace Tabeekh.Models
         public string Email { get; set; }
 
         public string Phone { get; set; }
-        public string Address { get; set; }
         public string Password { get; set; }
+        public string Address { get; set; }
+        public byte[] Photo { get; set; }
 
         [EnumDataType(typeof(UserType), ErrorMessage = "Invalid Role specified")]
         public UserType Role { get; set; }

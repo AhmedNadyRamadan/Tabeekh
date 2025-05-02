@@ -11,7 +11,7 @@ namespace Tabeekh.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    // [Authorize]
     public class ChiefController : ControllerBase
     {
         private readonly TabeekhDBContext _context;
@@ -25,7 +25,7 @@ namespace Tabeekh.Controllers
         public async Task<ActionResult<IEnumerable<Chief>>> GetAllChiefs( 
             [FromQuery] int pageNumber,
             [FromQuery] int limit,
-            [FromQuery] string nameFilter = "")
+            [FromQuery] string name = "")
         {
             if (pageNumber <= 0 || limit <= 0)
             {
@@ -34,29 +34,25 @@ namespace Tabeekh.Controllers
 
             IQueryable<Chief> query = _context.Chiefs;
 
-            if (!string.IsNullOrWhiteSpace(nameFilter))
+            if (!string.IsNullOrWhiteSpace(name))
             {
-                query = query.Where(m => m.Name.Contains(nameFilter));
+                query = query.Where(m => m.Name.Contains(name));
             }
 
             var totalChiefs = await query.CountAsync();
 
             var chiefs = await query
+                // .Select(c=>new{
+                //     c.Id,
+                //     c.Name,
+                //     c.TotalRate,
+                // })
                 .Skip(limit * (pageNumber - 1))
                 .Take(limit)
                 .ToListAsync();
 
-            var paginationMetadata = new
-            {
-                totalCount = totalChiefs,
-                pageNumber,
-                pageSize = limit,
-                totalPages = (int)Math.Ceiling(totalChiefs / (double)limit)
-            };
-
-            Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(paginationMetadata));
-
-            return Ok(chiefs);
+                var totalCount = totalChiefs;
+            return Ok(new{totalCount,items = chiefs});
         }
 
         // Get Chief by ID
@@ -152,7 +148,7 @@ namespace Tabeekh.Controllers
             return Ok("Chief deleted successfully");
         }
 
-        // GET: api/Chiefs/top10
+        // GET: api/Chief/top10
         [HttpGet("top10")]
         public async Task<ActionResult<IEnumerable<object>>> GetTop10Chiefs()
         {
@@ -160,30 +156,33 @@ namespace Tabeekh.Controllers
                 .GroupBy(r => r.Chief_Id)
                 .Select(g => new
                 {
-                    ChiefId = g.Key,
-                    GetChiefByName = _context.Chiefs.FirstOrDefault(c => c.Id == g.Key).Name,
-                    TotalReviews = g.Count(),
-                    AverageRating = g.Average(r => r.Rate)
+                    id = g.Key,
+                    name = _context.Chiefs.FirstOrDefault(c => c.Id == g.Key).Name,
+                    // TotalReviews = g.Count(),
+                    rate = g.Average(r => r.Rate),
+                    photo = _context.EndUsers.FirstOrDefault(u=>u.Id == g.Key).Photo
                 })
-                .OrderByDescending(g => g.AverageRating)
+                .OrderByDescending(g => g.rate)
                 .Take(10)
                 .ToListAsync();
 
-            // If less than 10 ratings found, return all available sorted by rating
-            if (topChiefs.Count < 10)
-            {
-                var allRankedChiefs = await _context.Cust_Chief_Reviews
-                    .GroupBy(r => r.Chief_Id)
-                    .Select(g => new
-                    {
-                        ChiefId = g.Key,
-                        AverageRating = g.Average(r => r.Rate)
-                    })
-                    .OrderByDescending(g => g.AverageRating)
-                    .ToListAsync();
+            // // If less than 10 ratings found, return all available sorted by rating
+            // if (topChiefs.Count < 10)
+            // {
+            //     var allRankedChiefs = await _context.Cust_Chief_Reviews
+            //         .GroupBy(r => r.Chief_Id)
+            //         .Select(g => new
+            //         {
+            //             id = g.Key,
+            //             name = _context.Chiefs.FirstOrDefault(c => c.Id == g.Key).Name,
+            //             photo = _context.EndUsers.FirstOrDefault(u=>u.Id == g.Key).Photo
+            //             rate = g.Average(r => r.Rate)
+            //         })
+            //         .OrderByDescending(g => g.rate)
+            //         .ToListAsync();
 
-                return Ok(allRankedChiefs);
-            }
+            //     return Ok(allRankedChiefs);
+            // }
 
             return Ok(topChiefs);
         }

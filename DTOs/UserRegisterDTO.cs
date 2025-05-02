@@ -19,11 +19,12 @@ namespace Tabeekh.DTOs
         public string Phone { get; set; }
         [Required]
         [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", ErrorMessage = "Password must be at least 8 characters long, contain one lowercase letter, one uppercase letter, one number, and one special character.")]
-
         public string Password { get; set; }
         [ConfirmPassword(nameof(ConfirmPassword))]
         public string ConfirmPassword { get; set; }
+        public byte[] Photo { get; set; }
 
+        public string Address { get; set; }
         [Required]
         public UserType Role { get; set; }
     }

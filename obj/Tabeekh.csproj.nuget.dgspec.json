@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/zaza/Downloads/ITI/Tabeekh/Tabeekh/Tabeekh.csproj": {}
+    "F:\\Collage\\ITI\\Grad Project\\Tabeekh_latest\\Tabeekh\\Tabeekh.csproj": {}
   },
   "projects": {
-    "/home/zaza/Downloads/ITI/Tabeekh/Tabeekh/Tabeekh.csproj": {
+    "F:\\Collage\\ITI\\Grad Project\\Tabeekh_latest\\Tabeekh\\Tabeekh.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/zaza/Downloads/ITI/Tabeekh/Tabeekh/Tabeekh.csproj",
+        "projectUniqueName": "F:\\Collage\\ITI\\Grad Project\\Tabeekh_latest\\Tabeekh\\Tabeekh.csproj",
         "projectName": "Tabeekh",
-        "projectPath": "/home/zaza/Downloads/ITI/Tabeekh/Tabeekh/Tabeekh.csproj",
-        "packagesPath": "/home/zaza/.nuget/packages/",
-        "outputPath": "/home/zaza/Downloads/ITI/Tabeekh/Tabeekh/obj/",
+        "projectPath": "F:\\Collage\\ITI\\Grad Project\\Tabeekh_latest\\Tabeekh\\Tabeekh.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "F:\\Collage\\ITI\\Grad Project\\Tabeekh_latest\\Tabeekh\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/zaza/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -116,7 +122,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/zaza/dotnet/sdk/9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
