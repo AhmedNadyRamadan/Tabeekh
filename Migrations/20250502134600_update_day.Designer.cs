@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tabeekh.Models;
 
@@ -11,9 +12,11 @@ using Tabeekh.Models;
 namespace Tabeekh.Migrations
 {
     [DbContext(typeof(TabeekhDBContext))]
-    partial class TabeekhDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250502134600_update_day")]
+    partial class update_day
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,7 +90,7 @@ namespace Tabeekh.Migrations
                     b.Property<Guid>("Customer_Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("totalRate")
+                    b.Property<int>("Rate")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -117,7 +120,7 @@ namespace Tabeekh.Migrations
                     b.Property<Guid>("Meal_Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("totalRate")
+                    b.Property<int>("Rate")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -188,9 +191,6 @@ namespace Tabeekh.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ChiefId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("Customer_Id")
                         .HasColumnType("uniqueidentifier");
 
@@ -226,10 +226,6 @@ namespace Tabeekh.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -244,6 +240,10 @@ namespace Tabeekh.Migrations
 
                     b.Property<int>("Role")
                         .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -262,8 +262,9 @@ namespace Tabeekh.Migrations
                     b.Property<Guid>("Chief_Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Day")
-                        .HasColumnType("int");
+                    b.Property<string>("Day")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ingredients")
                         .HasColumnType("nvarchar(max)");
@@ -287,9 +288,6 @@ namespace Tabeekh.Migrations
 
                     b.Property<string>("Recipe")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("totalRate")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -322,19 +320,8 @@ namespace Tabeekh.Migrations
                     b.Property<Guid>("MealId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("MealName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Measure_unit")
-                        .HasColumnType("int");
-
                     b.Property<Guid>("OrderId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<byte[]>("Photo")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
 
                     b.Property<float>("Price")
                         .HasColumnType("real");
@@ -439,7 +426,7 @@ namespace Tabeekh.Migrations
             modelBuilder.Entity("Tabeekh.Models.Order_items", b =>
                 {
                     b.HasOne("Tabeekh.Models.Delivery_Cust_Meal_Order", "Delivery_Cust_Meal_Order")
-                        .WithMany("Items")
+                        .WithMany("Order_items")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -454,7 +441,7 @@ namespace Tabeekh.Migrations
 
             modelBuilder.Entity("Tabeekh.Models.Delivery_Cust_Meal_Order", b =>
                 {
-                    b.Navigation("Items");
+                    b.Navigation("Order_items");
                 });
 #pragma warning restore 612, 618
         }

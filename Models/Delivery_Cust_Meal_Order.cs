@@ -19,6 +19,7 @@ namespace Tabeekh.Models
         public Guid Delivery_Id { get; set; }
         [ForeignKey("Customer")]
         public Guid Customer_Id { get; set; }
+        public Guid ChiefId { get; set; }
         public DateTime Date { get; set; }
         [JsonIgnore]
         public Customer? Customer { get; set; }
@@ -26,7 +27,7 @@ namespace Tabeekh.Models
         public Delivery? Delivery { get; set; }
         public float Price { get; set; }
         public string Address { get; set; }
-        public ICollection<Order_items> Order_items { get; set; } = new List<Order_items>();
+        public ICollection<Order_items> Items { get; set; } = new List<Order_items>();
 
     }
 }

@@ -37,14 +37,14 @@ namespace Tabeekh.Controllers
 
         // GET: api/Customers/{id}/orders
         // This endpoint retrieves all orders for a specific customer.
-        [HttpGet("{id:guid}/orders")]
+        [HttpGet("{id:guid}/Order")]
         public async Task<ActionResult<IEnumerable<Delivery_Cust_Meal_Order>>> GetOrders(Guid id)
         {
             if (!await _context.Customers.AnyAsync(c => c.Id == id))
                 return NotFound(new { message = "Customer not found." });
 
             var orders = await _context.Delivery_Cust_Meal_Orders
-                .Include(o=>o.Order_items)
+                .Include(o=>o.Items)
                 .Where(o => o.Customer_Id == id)
                 .ToListAsync();
 
@@ -116,11 +116,18 @@ namespace Tabeekh.Controllers
         [HttpPost("meals/{mealId:guid}/reviews")]
         public async Task<IActionResult> AddMealReview(Guid mealId, [FromBody] Cust_Meal_Review review)
         {
-            var mealExists = await _context.Meals.AnyAsync(m => m.Id == mealId);
-            if (!mealExists)
+            var meal = await _context.Meals.FirstOrDefaultAsync(m => m.Id == mealId);
+            var rates = await _context.Cust_Meal_Reviews.Where(c=>c.Meal_Id == mealId ).Select(r=>r.totalRate).ToListAsync();
+            int sumOfRates = 0;
+            if (meal == null)
                 return NotFound(new { message = "Meal not found." });
-
             review.Meal_Id = mealId;
+            foreach (var rate in rates)
+            {
+                sumOfRates += rate;
+            }
+            meal.totalRate = sumOfRates/(rates.Count()>0?rates.Count():1);
+            _context.Meals.Update(meal);
             _context.Cust_Meal_Reviews.Add(review);
             await _context.SaveChangesAsync();
 
@@ -132,14 +139,22 @@ namespace Tabeekh.Controllers
         [HttpPost("chiefs/{chiefId:guid}/reviews")]
         public async Task<IActionResult> AddChiefReview(Guid chiefId, [FromBody] Cust_Chief_Review review)
         {
-            var chiefExists = await _context.Chiefs.AnyAsync(c => c.Id == chiefId);
-            if (!chiefExists)
+            var chief = await _context.Chiefs.FirstOrDefaultAsync(c => c.Id == chiefId);
+            var rates = await _context.Cust_Chief_Reviews.Where(c=>c.Chief_Id == chiefId).Select(r=>r.totalRate).ToListAsync();
+            int sumOfRates = 0;
+            if (chief == null)
                 return NotFound(new { message = "Chief not found." });
-
             review.Chief_Id = chiefId;
+            foreach (var rate in rates)
+            {
+                sumOfRates += rate;
+            }
+            sumOfRates += review.totalRate;
+            chief.TotalRate = sumOfRates/(rates.Count()>0?(rates.Count()+1):1);
+            // chief.TotalRate = ((chief.TotalRate * reviewsCount) + review.Rate)/(reviewsCount + 1);
+            _context.Update(chief);
             _context.Cust_Chief_Reviews.Add(review);
             await _context.SaveChangesAsync();
-
             return Ok(review);
         }
 

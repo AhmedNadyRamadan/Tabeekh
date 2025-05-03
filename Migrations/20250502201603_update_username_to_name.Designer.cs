@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tabeekh.Models;
 
@@ -11,9 +12,11 @@ using Tabeekh.Models;
 namespace Tabeekh.Migrations
 {
     [DbContext(typeof(TabeekhDBContext))]
-    partial class TabeekhDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250502201603_update_username_to_name")]
+    partial class update_username_to_name
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,7 +90,7 @@ namespace Tabeekh.Migrations
                     b.Property<Guid>("Customer_Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("totalRate")
+                    b.Property<int>("Rate")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -117,7 +120,7 @@ namespace Tabeekh.Migrations
                     b.Property<Guid>("Meal_Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("totalRate")
+                    b.Property<int>("Rate")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -187,9 +190,6 @@ namespace Tabeekh.Migrations
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("ChiefId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("Customer_Id")
                         .HasColumnType("uniqueidentifier");

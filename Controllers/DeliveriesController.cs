@@ -108,7 +108,7 @@ namespace Tabeekh.Controllers
         [HttpGet("Orders/{id}")]
         public async Task<ActionResult<IEnumerable<Delivery_Cust_Meal_Order>>> GetDeliveryOrders(Guid id)
         {
-            var Orders = await _context.Delivery_Cust_Meal_Orders.Include(o=>o.Order_items).Where(o=>o.Delivery_Id == id).ToListAsync();
+            var Orders = await _context.Delivery_Cust_Meal_Orders.Include(o=>o.Items).Where(o=>o.Delivery_Id == id).ToListAsync();
             return Orders;
         }
         // This method checks if a delivery exists by ID.

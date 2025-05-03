@@ -1,9 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 using Tabeekh.Models;
 using Tabeekh.Validators;
 
 namespace Tabeekh.DTOs
 {
+    [Index(nameof(Email), nameof(Phone), IsUnique = true)]
+
     public class UserRegisterDTO
     {
         public Guid Id { get; set; } = Guid.NewGuid();

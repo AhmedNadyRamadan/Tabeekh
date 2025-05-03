@@ -25,22 +25,24 @@ namespace Tabeekh.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Delivery_Cust_Meal_Order>>> GetOrders()
         {
-            return await _context.Delivery_Cust_Meal_Orders.Include(o=>o.Order_items).ToListAsync();
+            var orders = await _context.Delivery_Cust_Meal_Orders.Include(o=>o.Items).ToListAsync();
+          
+            return Ok(orders);
         }
 
         // GET: api/Order/ID
         // This endpoint retrieves a specific order by ID.
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Delivery_Cust_Meal_Order>> GetOrder(int id)
+        [HttpGet("{id:guid}")]
+        public async Task<ActionResult<Delivery_Cust_Meal_Order>> GetOrder(Guid id)
         {
-            var delivery_Cust_Meal_Order = await _context.Delivery_Cust_Meal_Orders.FindAsync(id);
+            var delivery_Cust_Meal_Order = await _context.Delivery_Cust_Meal_Orders.Include(o=>o.Items).FirstOrDefaultAsync(o=>o.Id == id);
 
             if (delivery_Cust_Meal_Order == null)
             {
                 return NotFound();
             }
 
-            return delivery_Cust_Meal_Order;
+            return Ok(delivery_Cust_Meal_Order);
         }
 
         // PUT: api/Order/ID
@@ -86,13 +88,21 @@ namespace Tabeekh.Controllers
                 return BadRequest("there is no free deliveries");
             }
 
+            foreach (var item in order.Items)
+            {
+                var meal = await _context.Meals.FirstOrDefaultAsync(m=>m.Id == item.MealId);
+                if(meal != null){
+                    OrderDB.ChiefId = meal.Chief_Id;
+                    break;
+                }
+            }
             OrderDB.Delivery_Id = delivery.Id;
             OrderDB.Address = order.Address;
             OrderDB.Price = order.Price;
             OrderDB.Customer_Id = order.Customer_Id;
             OrderDB.Date = DateTime.Now;
             OrderDB.Address = order.Address;
-            OrderDB.Order_items = order.Items;
+            OrderDB.Items = order.Items;
 
             _context.Delivery_Cust_Meal_Orders.Add(OrderDB);
             await _context.SaveChangesAsync();
@@ -101,8 +111,8 @@ namespace Tabeekh.Controllers
 
         // DELETE: api/Order/ID
         // This endpoint deletes a specific order by ID.
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteOrder(int id)
+        [HttpDelete("{id:guid}")]
+        public async Task<IActionResult> DeleteOrder(Guid id)
         {
             var delivery_Cust_Meal_Order = await _context.Delivery_Cust_Meal_Orders.FindAsync(id);
             if (delivery_Cust_Meal_Order == null)
@@ -125,7 +135,7 @@ namespace Tabeekh.Controllers
         [HttpGet("GetOrderDetails/{id}")]
         public async Task<ActionResult<IEnumerable<Order_items>>> GetOrderDetails(Guid id)
         {
-            var order = await _context.Delivery_Cust_Meal_Orders.Select(o=>new {o.Order_items,o.Id}).FirstOrDefaultAsync(o => o.Id == id);
+            var order = await _context.Delivery_Cust_Meal_Orders.Select(o=>new {o.Items,o.Id}).FirstOrDefaultAsync(o => o.Id == id);
             if (order == null)
             {
                 return Ok();

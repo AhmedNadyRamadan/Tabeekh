@@ -32,7 +32,7 @@ namespace Tabeekh.Controllers
                 return BadRequest(new { message = "Page number and limit must be greater than zero." });
             }
 
-            IQueryable<Chief> query = _context.Chiefs;
+            IQueryable<Chief> query = _context.Chiefs.Include(c=>c.Meals);
 
             if (!string.IsNullOrWhiteSpace(name))
             {
@@ -42,11 +42,12 @@ namespace Tabeekh.Controllers
             var totalChiefs = await query.CountAsync();
 
             var chiefs = await query
-                // .Select(c=>new{
-                //     c.Id,
-                //     c.Name,
-                //     c.TotalRate,
-                // })
+                .Select(c=>new{
+                    id = c.Id,
+                    name = c.Name,
+                    totalRate = c.TotalRate,
+                    photo = _context.EndUsers.FirstOrDefault(u=>u.Id == c.Id)!.Photo
+                })
                 .Skip(limit * (pageNumber - 1))
                 .Take(limit)
                 .ToListAsync();
@@ -59,7 +60,33 @@ namespace Tabeekh.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Chief>> GetChiefById(Guid id)
         {
-            var chief = await _context.Chiefs.FindAsync(id);
+            var chief = await _context.Chiefs.Include(c=>c.Meals)
+            .Select(c=>new{
+                    id = c.Id,
+                    name = c.Name,
+                    totalRate = c.TotalRate,
+                    photo = _context.EndUsers.FirstOrDefault(u=>u.Id == c.Id)!.Photo,
+                    meals = c.Meals.Select(m=>new {
+                        id = m.Id,
+                        name = m.Name,
+                        photo = m.Photo,
+                        prepration_Time = m.Prepration_Time,
+                        price = m.Price,
+                        available = m.Available,
+                        ingredients = m.Ingredients,
+                        recipe = m.Recipe,
+                        measure_unit = m.Measure_unit,
+                        totalRate= m.totalRate,
+                        day = m.Day,
+                        category = _context.Categories.Join(_context.Meals_Categories,c=>c.Id,m=>m.CategoryId,(c,m)=>new {
+                            name = c.Name,
+                            cid= c.Id,
+                            mealId = m.MealId
+                    }).FirstOrDefault(c=>c.mealId == m.Id)!.name ?? "",
+                    chief_name = m.Chief!.Name
+                }),
+                    
+                }).FirstOrDefaultAsync(c=>c.id == id);
             //if (chief == null)
             //{
             //    return NotFound("Chief not found.");
@@ -159,7 +186,7 @@ namespace Tabeekh.Controllers
                     id = g.Key,
                     name = _context.Chiefs.FirstOrDefault(c => c.Id == g.Key).Name,
                     // TotalReviews = g.Count(),
-                    rate = g.Average(r => r.Rate),
+                    rate = g.Average(r => r.totalRate),
                     photo = _context.EndUsers.FirstOrDefault(u=>u.Id == g.Key).Photo
                 })
                 .OrderByDescending(g => g.rate)
@@ -187,11 +214,29 @@ namespace Tabeekh.Controllers
             return Ok(topChiefs);
         }
 
+         [HttpGet("{id:guid}/Order")]
+        public async Task<ActionResult<IEnumerable<Delivery_Cust_Meal_Order>>> GetOrders(Guid id)
+        {
+            if (!await _context.Chiefs.AnyAsync(c => c.Id == id))
+                return NotFound(new { message = "Chief not found." });
+
+            var orders = await _context.Delivery_Cust_Meal_Orders
+                .Include(o=>o.Items)
+                .Where(o => o.ChiefId == id)
+                .ToListAsync();
+
+            return Ok(orders);
+        }
 
         // Add Meal to Chief
         [HttpPost("Meals/{chiefId}")]
-        public async Task<ActionResult<Meal>> AddMealToChief(Guid chiefId, [FromBody] Meal meal)
+        public async Task<ActionResult<Meal>> AddMealToChief(Guid chiefId, [FromBody] addMealDTO meal)
         {
+            Meal mealDB = new Meal();
+            Meal_Category meal_Category = new Meal_Category();
+            Category Category = new Category();
+            var categoryDB = await _context.Categories.FirstOrDefaultAsync(c=>c.Name == meal.Category);
+
             if (meal == null)
             {
                 return BadRequest("Meal data is null.");
@@ -203,11 +248,34 @@ namespace Tabeekh.Controllers
                 return NotFound("Chief not found.");
             }
 
-            meal.Chief_Id = chiefId;
-            _context.Meals.Add(meal);
+            mealDB.Chief_Id = chiefId;
+
+            if(categoryDB != null){
+                meal_Category.CategoryId = categoryDB.Id;
+            }else{
+                Category.Name = meal.Category;
+                _context.Categories.Add(Category);
+                meal_Category.CategoryId = Category.Id;
+            }
+
+
+            mealDB.Available = meal.Available;
+            mealDB.Day = meal.Day;
+            mealDB.Ingredients = meal.Ingredients;
+            mealDB.Photo = meal.Photo;
+            mealDB.Name = meal.Name;
+            mealDB.Measure_unit = meal.Measure_unit;
+            mealDB.Prepration_Time = meal.Prepration_Time;
+            mealDB.Price = meal.Price;
+            mealDB.Recipe = meal.Recipe;
+            _context.Meals.Add(mealDB);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetMealsByChiefId), new { id = chiefId }, meal);
+            meal_Category.MealId = mealDB.Id;
+            _context.Meals_Categories.Add(meal_Category);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetMealsByChiefId), new { id = chiefId }, mealDB);
         }
 
         // Update Meal
@@ -252,7 +320,7 @@ namespace Tabeekh.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         } 
-        [HttpGet("Reviews/{chiefId}")]
+        [HttpGet("{chiefId}/Reviews")]
         public async Task<ActionResult<IEnumerable<ReviewDTO>>> GetChiefReviews(Guid chiefId)
         {
             List<ReviewDTO> reviewsList = new List<ReviewDTO>();
@@ -262,18 +330,18 @@ namespace Tabeekh.Controllers
             foreach (var rev in Reviews)
             {
                 var customer = _context.Customers.FirstOrDefault(c=>c.Id == rev.Customer_Id);
-                review.CustomerName = customer.Name;
+                review.Customer_Name = customer.Name;
                 review.Comment = rev.Comment;
-                review.Rate = rev.Rate;
+                review.totalRate = rev.totalRate;
                 reviewsList.Add(review);
                 review = new ReviewDTO();
             }
             return Ok(reviewsList);
         }
-        [HttpGet("Rate/{chiefId}")]
+        [HttpGet("{chiefId}/Rate")]
         public async Task<IActionResult> GetChiefRate(Guid chiefId)
         {
-            var Rates = await _context.Cust_Chief_Reviews.Where(r=>r.Chief_Id == chiefId).Select(r=>r.Rate).ToListAsync();
+            var Rates = await _context.Cust_Chief_Reviews.Where(r=>r.Chief_Id == chiefId).Select(r=>r.totalRate).ToListAsync();
             float sum = 0;
             float AvgRate = 0;
 

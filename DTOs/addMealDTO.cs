@@ -1,31 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection.Metadata;
-using System.Text.Json.Serialization;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+using Tabeekh.Models;
 
-namespace Tabeekh.Models
+namespace Tabeekh.DTOs
 {
-
-    public enum Unit { 
-        Kilogram = 0,
-        Piece = 1,
-        Other = 2,
-
-    }
-
-    public enum Day  {
-        Sunday = 0,
-        Monday = 1,
-        Tuesday = 2,
-        Wednesday = 3,
-        Thursday = 4,
-        Friday = 5,
-        Saturday = 6,
-        General =7 
-    }
-    public class Meal
+    public class addMealDTO
     {
-
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Name { get; set; }
         public byte[] Photo { get; set; }
@@ -34,6 +17,7 @@ namespace Tabeekh.Models
         public bool Available { get; set; }
 
         public string? Ingredients { get; set; }
+        public string? Category { get; set; }
         public string? Recipe { get; set; }
 
         // needs validation in database
@@ -41,14 +25,7 @@ namespace Tabeekh.Models
         public Unit Measure_unit { get; set; }
         public int totalRate { get; set; }
 
-        [ForeignKey("Chief")]
-        [JsonIgnore]
-        public Guid Chief_Id { get; set; }
-        [JsonIgnore]
-        public Chief? Chief { get; set; }
-
         [EnumDataType(typeof(Day), ErrorMessage = "Invalid day entry")]
         public Day Day { get; set; }
-
     }
 }

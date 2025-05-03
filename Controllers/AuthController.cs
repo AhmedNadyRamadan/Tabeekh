@@ -25,7 +25,9 @@ namespace Tabeekh.Controllers
         {
             EndUser userToDB = new EndUser();
             Chief Chief = new Chief();
-            var userDB = await _tabeekhDB.EndUsers.FirstOrDefaultAsync(u=>u.Email == EndUser.Email || u.Username == EndUser.Username);
+            Customer Customer = new Customer();
+
+            var userDB = await _tabeekhDB.EndUsers.FirstOrDefaultAsync(u=>u.Email == EndUser.Email || u.Name == EndUser.Username);
             if (userDB != null) 
             { 
                 return BadRequest(new { message = "Username or Email is already taken"});
@@ -43,26 +45,82 @@ namespace Tabeekh.Controllers
             var hashedPassword = new PasswordHasher<UserRegisterDTO>().HashPassword(EndUser,EndUser.Password);
 
             userToDB.Email = EndUser.Email;
-            userToDB.Username = EndUser.Username;
+            userToDB.Name = EndUser.Username;
             userToDB.Phone = EndUser.Phone;
             userToDB.Role = EndUser.Role;
             userToDB.Id = EndUser.Id;
             userToDB.Address = EndUser.Address;
             userToDB.Password = hashedPassword;
             userToDB.Photo = EndUser.Photo;
-            
-            if(EndUser.Role == 0){
+
+            if( EndUser.Role == UserType.Chief){
             Chief.Id = EndUser.Id;
             Chief.Email = EndUser.Email;
             Chief.Name = EndUser.Username;
             Chief.Phone = EndUser.Phone;
+            Chief.Address = EndUser.Address;
             _tabeekhDB.Chiefs.Add(Chief);
+            }
+
+            if(EndUser.Role == UserType.Customer){
+            Customer.Id = EndUser.Id;
+            Customer.Email = EndUser.Email;
+            Customer.Name = EndUser.Username;
+            Customer.Phone = EndUser.Phone;
+            Customer.Address = EndUser.Address;
+            _tabeekhDB.Customers.Add(Customer);
             }
 
             _tabeekhDB.EndUsers.Add(userToDB);
             _tabeekhDB.SaveChanges();
             return Ok(new { message = " registered successfully", userToDB });
         }
+
+         [HttpPut("UpdateUser/{Id:guid}")]
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserDTO user,Guid Id)
+        {
+            var userDB = await _tabeekhDB.EndUsers.FirstOrDefaultAsync(u => u.Id == Id);
+            if (userDB == null)
+            {
+                return BadRequest("Invalid user");
+            }
+
+            userDB.Address = user.Address;
+            userDB.Name = user.Username;
+            userDB.Email = user.Email;
+            userDB.Phone = user.Phone;
+            userDB.Photo = user.Photo;
+            _tabeekhDB.Update(userDB);
+
+            if (userDB.Role == UserType.Chief)
+            {
+                var Chief = await _tabeekhDB.Chiefs.FirstOrDefaultAsync(c=>c.Id == Id);
+                if (Chief != null)
+                    {    
+                        Chief.Email = user.Email;
+                        Chief.Name = user.Username;
+                        Chief.Phone = user.Phone;
+                        Chief.Address = user.Address;
+                        _tabeekhDB.Update(Chief);
+                    }
+            }
+            if (userDB.Role == UserType.Customer)
+            {
+                var Customer = await _tabeekhDB.Customers.FirstOrDefaultAsync(c=>c.Id == Id);
+                if (Customer != null)
+                    {    
+                        Customer.Email = user.Email;
+                        Customer.Name = user.Username;
+                        Customer.Phone = user.Phone;
+                        Customer.Address = user.Address;
+                        _tabeekhDB.Update(Customer);
+                    }
+            }
+            await _tabeekhDB.SaveChangesAsync();
+
+            return Ok(new{message = $"user with id: {Id} has been updated successfully"});            
+        }
+
 
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] UserDTO user)
@@ -123,7 +181,7 @@ namespace Tabeekh.Controllers
             return BadRequest("Invalid user name or email");
         }
 
-        [HttpGet("GetUsers")]
+        [HttpGet("User")]
         public async Task<IActionResult> GetUsers()
         {
             var users = await _tabeekhDB.EndUsers.ToListAsync();
@@ -132,6 +190,17 @@ namespace Tabeekh.Controllers
                 return NotFound("No users found.");
             }
             return Ok(users);
+        }
+
+        [HttpGet("User/{id:guid}")]
+        public async Task<IActionResult> GetUsers(Guid id)
+        {
+            var user = await _tabeekhDB.EndUsers.FirstOrDefaultAsync(u=>u.Id == id);
+            if (user == null )
+            {
+                return NotFound("No users found.");
+            }
+            return Ok(user);
         }
         [HttpPost("Change-password")]
         public async Task<IActionResult> ChangePassword(
@@ -162,8 +231,9 @@ namespace Tabeekh.Controllers
             {
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name,user.Username),
-                new Claim(ClaimTypes.Role,user.Role.ToString())
+                new Claim(ClaimTypes.Name,user.Name),
+                new Claim(ClaimTypes.Role,user.Role.ToString()),
+                new Claim(ClaimTypes.StreetAddress,user.Address.ToString()),
 
             };
 

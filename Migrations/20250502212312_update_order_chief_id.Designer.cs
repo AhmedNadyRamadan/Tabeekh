@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tabeekh.Models;
 
@@ -11,9 +12,11 @@ using Tabeekh.Models;
 namespace Tabeekh.Migrations
 {
     [DbContext(typeof(TabeekhDBContext))]
-    partial class TabeekhDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250502212312_update_order_chief_id")]
+    partial class update_order_chief_id
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,7 +90,7 @@ namespace Tabeekh.Migrations
                     b.Property<Guid>("Customer_Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("totalRate")
+                    b.Property<int>("Rate")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -117,7 +120,7 @@ namespace Tabeekh.Migrations
                     b.Property<Guid>("Meal_Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("totalRate")
+                    b.Property<int>("Rate")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

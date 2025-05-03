@@ -37,7 +37,7 @@ namespace Tabeekh.Controllers
                 return BadRequest(new { message = "Page number and limit must be greater than zero." });
             }
 
-            IQueryable<Meal> query = _context.Meals;
+            IQueryable<Meal> query = _context.Meals.Include(m=>m.Chief);
             
 
             if (!string.IsNullOrWhiteSpace(name))
@@ -58,20 +58,25 @@ namespace Tabeekh.Controllers
             var totalMeals = await query.CountAsync();
 
             var meals = await query
+                .Select(m=>new {
+                    id = m.Id,
+                    name = m.Name,
+                    photo = m.Photo,
+                    prepration_Time = m.Prepration_Time,
+                    price = m.Price,
+                    available = m.Available,
+                    ingredients = m.Ingredients,
+                    recipe = m.Recipe,
+                    measure_unit = m.Measure_unit,
+                    day = m.Day,
+                    totalRate= m.totalRate,
+                    chief_name = m.Chief.Name,
+                    Category = _context.Meals_Categories.Include(m=>m.Category).FirstOrDefault(u=>u.MealId == m.Id).Category.Name,
+                })
                 .Skip(limit * (pageNumber - 1))
                 .Take(limit)
                 .ToListAsync();
             var totalCount = totalMeals;
-            // var pagination = new
-            // {
-            //     totalCount = totalMeals,
-            //     pageNumber,
-            //     pageSize = limit,
-            //     totalPages = (int)Math.Ceiling(totalMeals / (double)limit)
-            // };
-
-            // Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(paginationMetadata));
-
             return Ok(new{totalCount,items = meals});
         }
 
@@ -79,11 +84,62 @@ namespace Tabeekh.Controllers
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<Meal>> GetMealById(Guid id)
         {
-            var meal = await _context.Meals.FirstOrDefaultAsync(m => m.Id == id);
+            var meal = await _context.Meals.Include(m=>m.Chief)
+            .Select(m=>new {
+                    id = m.Id,
+                    name = m.Name,
+                    photo = m.Photo,
+                    prepration_Time = m.Prepration_Time,
+                    price = m.Price,
+                    available = m.Available,
+                    ingredients = m.Ingredients,
+                    recipe = m.Recipe,
+                    measure_unit = m.Measure_unit,
+                    totalRate= m.totalRate,
+                    day = m.Day,
+                    category = _context.Categories.Join(_context.Meals_Categories,c=>c.Id,m=>m.CategoryId,(c,m)=>new {
+                        name = c.Name,
+                        id= c.Id,
+                        mealId = m.MealId
+                    }).FirstOrDefault(c=>c.mealId == id)!.name ?? "",
+                    chief_name = m.Chief!.Name
+                }).FirstOrDefaultAsync(m => m.id == id);
             if (meal == null)
             {
                 return NotFound(new { message = "Meal not found." });
             }
+            return Ok(meal);
+        }
+
+
+        [HttpPut("{id:guid}")]
+        public async Task<ActionResult<Meal>> UpdateMeals([FromBody] UpdateMealDTO updatedMeal,Guid id)
+        {
+            var meal = await _context.Meals.FirstOrDefaultAsync(m=>m.Id == id);
+            var category =  await _context.Meals_Categories.FirstOrDefaultAsync(m=>m.MealId == id);
+            var categoryId =  _context.Categories.FirstOrDefault(m=>m.Name == updatedMeal.Category)!.Id;
+            Meal_Category cat = new Meal_Category();
+            if (meal == null)
+            {
+                return BadRequest("meal not found");
+            }
+            meal.Name = updatedMeal.Name;
+            meal.Available = updatedMeal.Available;
+            meal.Day = updatedMeal.Day;
+            meal.Price = updatedMeal.Price;
+
+            if (category != null)
+            {
+                _context.Meals_Categories.Remove(category);
+                await _context.SaveChangesAsync();
+            }
+                cat.CategoryId = categoryId;
+                cat.MealId = meal.Id;
+                _context.Meals_Categories.Add(cat);
+            
+            _context.Meals.Update(meal);
+            await _context.SaveChangesAsync();
+
             return Ok(meal);
         }
 
@@ -141,7 +197,7 @@ namespace Tabeekh.Controllers
                 {
                     id = g.Key,
                     name = _context.Meals.FirstOrDefault(c => c.Id == g.Key).Name,
-                    rate = g.Average(r => r.Rate),
+                    rate = g.Average(r => r.totalRate),
                     photo = _context.Meals.FirstOrDefault(u=>u.Id == g.Key).Photo,
                     Category = _context.Meals_Categories.Include(m=>m.Category).FirstOrDefault(u=>u.MealId == g.Key).Category.Name,
                     price = _context.Meals.FirstOrDefault(u=>u.Id == g.Key).Price,
@@ -167,7 +223,7 @@ namespace Tabeekh.Controllers
                 {
                     id = g.Key,
                     name = _context.Meals.FirstOrDefault(c => c.Id == g.Key).Name,
-                    rate = g.Average(r => r.Rate),
+                    rate = g.Average(r => r.totalRate),
                     photo = _context.Meals.FirstOrDefault(u=>u.Id == g.Key).Photo,
                     Category = _context.Meals_Categories.Include(m=>m.Category).FirstOrDefault(u=>u.MealId == g.Key).Category.Name,
                     oldPrice = _context.Meals.FirstOrDefault(u=>u.Id == g.Key).Price,
@@ -199,9 +255,9 @@ namespace Tabeekh.Controllers
            foreach (var rev in Reviews)
             {
                 var customer = _context.Customers.FirstOrDefault(c=>c.Id == rev.Customer_Id);
-                review.CustomerName = customer.Name;
+                review.Customer_Name = customer.Name;
                 review.Comment = rev.Comment;
-                review.Rate = rev.Rate;
+                review.totalRate = rev.totalRate;
                 reviewsList.Add(review);
                 review = new ReviewDTO();
             }
@@ -239,13 +295,13 @@ namespace Tabeekh.Controllers
         [HttpGet("RecommendFood")]
         public async Task<ActionResult> RecommendFood(string category)
         {
-            var meals = _context.Meals.ToList();
+            // var meals = _context.Meals.ToList();
             string prompt = $"Please recommend a meal from the following list based on the category {category} : ";
-            foreach (var meal in meals)
-            {
-                prompt += $"{meal} , ";
-            }
-            prompt += $"Please provide the recommended meals in an array format like this: [meal1 details, meal2 details, meal3 details] only make the response contain the array not json recommend meals as i want to use it in my frontend app";
+            // foreach (var meal in meals)
+            // {
+            //     prompt += $"{meal.Name} , ";
+            // }
+            prompt += $"please provide an new recipe for me as a chief to make for my customers, make the response in an array like format that has 3 items, each item of that array is an object that has (name, ingredients and recipe) key, also please provide only the array without any extension texts make sure the value is in json format to be able to use it in my front end app don't start with (```json) make sure response in arabic";
 
             ChatClient client = new(model: "gpt-4o-mini", apiKey: _config.GetValue<string>("Application:OpenAi_Api_key"));
             ChatCompletion completion = client.CompleteChat(prompt);
@@ -255,12 +311,12 @@ namespace Tabeekh.Controllers
         [HttpGet("RecommendFoodBasedOnHistory/{customerId:guid}")]
         public async Task<ActionResult> RecommendFoodBasedOnHistory(Guid customerId)
         {
-            var orders = _context.Delivery_Cust_Meal_Orders.Include(o=>o.Order_items).Where(d=>d.Customer_Id == customerId).ToList();
+            var orders = await _context.Delivery_Cust_Meal_Orders.Include(o=>o.Items).Where(d=>d.Customer_Id == customerId).ToListAsync();
             string prompt = $"Please recommend a meal from the following list based on the history of orders provided  : ";
             List<string> meals = new List<string>();
             foreach (var order in orders)
             {
-                foreach (var mealItem in order.Order_items){
+                foreach (var mealItem in order.Items){
                 var meal = await _context.Meals.FirstOrDefaultAsync(m=> m.Id == mealItem.MealId);
                 meals.Add(meal.Name);
                 }
@@ -269,7 +325,8 @@ namespace Tabeekh.Controllers
             {
                 prompt += $"{item}, ";
             }
-            prompt += $"Please provide the recommended meals in an array format like this: [meal1 details, meal2 details, meal3 details] only make the response contain the array not json like and add more details about each meal in a separate object and if an order is duplicated please ignore it then recommend one or more extra meals  in addition to the provided meals as I want to use it in my frontend app";
+            
+            prompt += $"Please provide the recommended meals in an array format like this: [meal1 details, meal2 details, meal3 details], make the response in an array of objects format and the object contains (name,ingredients,recipe) for each meal";
 
             ChatClient client = new(model: "gpt-4o-mini", apiKey: _config.GetValue<string>("Application:OpenAi_Api_key"));
             ChatCompletion completion = client.CompleteChat(prompt);
@@ -279,7 +336,7 @@ namespace Tabeekh.Controllers
         [HttpGet("Rate/{mealId}")]
         public async Task<IActionResult> GetChiefRate(Guid mealId)
         {
-            var Rates = await _context.Cust_Meal_Reviews.Where(r=>r.Meal_Id == mealId).Select(r=>r.Rate).ToListAsync();
+            var Rates = await _context.Cust_Meal_Reviews.Where(r=>r.Meal_Id == mealId).Select(r=>r.totalRate).ToListAsync();
             float sum = 0;
             float AvgRate = 0;
 

@@ -14,7 +14,7 @@ namespace Tabeekh.Models
         [ForeignKey("Customer")]
         public Guid Customer_Id { get; set; }
         [Range(0, 5, ErrorMessage = "Rate must be between 0 and 5")]
-        public int Rate { get; set; }
+        public int totalRate { get; set; }
         public string Comment { get; set; }
         [JsonIgnore]
         public Meal? Meal { get; set; }
