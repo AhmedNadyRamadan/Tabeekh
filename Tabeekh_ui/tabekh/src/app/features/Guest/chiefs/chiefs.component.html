@@ -1,0 +1,68 @@
+<section class="bg-white">
+  <div class="row align-items-center justify-content-center m-3">
+    <div class="col-12">
+      <div class="general-card-dark align-self-stretch p-2">
+        <form class="native-form row gap-2 gap-sm-0 align-items-center">
+          <div class="col-sm-8 col-md-6 col-12">
+            <div class="d-flex gap-2 align-items-center">
+              <label for="name">الاسم</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="mb-0"
+                [(ngModel)]="queryParams().name"
+              />
+            </div>
+          </div>
+
+          <div class="col-sm-2 col-md-3 col-12">
+            <button
+              type="submit"
+              class="p-2"
+              [disabled]="isDisabled"
+              (click)="getChiefs()"
+            >
+              بحث
+            </button>
+          </div>
+          <div class="col-sm-2 col-md-3 col-12">
+            <button
+              type="reset"
+              class="p-2 btn btn-danger w-100"
+              [disabled]="isDisabled"
+              (click)="reset()"
+            >
+              تصفية
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid mb-3">
+    <div class="row justify-content-center gap-5 flex-wrap align-items-stretch">
+      @for (chief of (data | async)!.items; track $index) {
+      <div class="col-auto">
+        <app-chief-card [chief]="chief"></app-chief-card>
+      </div>
+      }@empty {
+      <h3 class="text-center">لا يوجد بيانات</h3>
+      }
+    </div>
+  </div>
+  @if ( (data| async)!.totalCount) {
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <p-paginator
+        (onPageChange)="onPageChange($event)"
+        styleClass="paginator"
+        [first]="first"
+        [rows]="queryParams().limit"
+        [totalRecords]="(data | async)!.totalCount"
+        [rowsPerPageOptions]="[10, 20, 30]"
+      />
+    </div>
+  </div>
+  }
+</section>

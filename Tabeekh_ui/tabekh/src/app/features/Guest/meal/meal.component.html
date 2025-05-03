@@ -1,0 +1,74 @@
+<section class="container-fluid bg-white">
+    <div class="row mt-4 mb-4 align-items-center">
+        <div class="col-md-6 col-lg-4 col-12">
+            <img class="w-100" src="{{ ('data:image/*;base64, ' + ( meal | async )!.photo )  || dummyImage}}" alt="{{ (meal | async)!.name }}">
+            <div class="native-overlay-p">
+                <h5 class="badge {{( meal | async )!.available ? 'bg-success' : 'bg-danger'}} p-2 m-2">{{( meal | async
+                    )!.available ? "متاح" : "غير متاح"}}</h5>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-8 col-12 p-3">
+            <h2 class="fw-bold mb-4">{{(meal | async)!.name}}</h2>
+            <div class="row mb-4">
+                <div class="col-lg-4 col-6">
+                    <div class="d-flex justify-content-between text-warning"
+                        [innerHTML]=" ( (meal | async)!.totalRate || 0) | rate"></div>
+                </div>
+            </div>
+            <div class="row align-items-center mb-4">
+                <div class="col-auto">
+                    <app-cart-btn [meal]="(meal | async)!" [isLarger]="true"></app-cart-btn>
+                </div>
+                <div class="col-auto">
+                    {{ UnitsAR[(meal|async)!.measure_unit] }}
+                </div>
+            </div>
+            <h3 class="mb-4">{{(meal|async)!.price | currency:"EGP":"جنيه "}}</h3>
+            <div class="row flex-wrap mb-2">
+                <div class="col-auto">
+                    <p class="native-tag">{{ (meal|async)!.category }}</p>
+                </div>
+            </div>
+            <h5 class="badge p-2 bg_P-A400 mb-4">
+                <span>جاهز في</span> <time [attr.datetime]="(meal| async)!.prepration_Time | minutesToTime:'datetime'"
+                    class=""> {{ (meal| async)!.prepration_Time | minutesToTime }}</time>
+            </h5>
+            <div class="row">
+                <div class="col-auto">
+                    <h5 class="text-muted" [innerHTML]="(meal|async)!.chief_name | chieftitle"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row gap-3 gap-lg-0">
+        <div class="col-12 col-lg-6">
+            <div class="general-card-dark">
+                <h2>المكونات</h2>
+                <ul class="custom-list">
+                    @for (ingredient of (meal | async)!.ingredients; track $index) {
+                    <li>
+                        <span>{{ ingredient }}</span>
+                    </li>
+                    }@empty {
+                    <h3 class="text-center">لا يوجد بيانات</h3>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="general-card-dark">
+                <h2>الوصفة</h2>
+                <ol class="custom-list">
+                    @for (step of (meal | async)!.recipe; track $index) {
+                    <li>
+                        <span>{{ step }}</span>
+                    </li>
+                    }@empty {
+                    <h3 class="text-center">لا يوجد بيانات</h3>
+                    }
+                </ol>
+
+            </div>
+        </div>
+    </div>
+</section>

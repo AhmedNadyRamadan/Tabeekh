@@ -1,0 +1,59 @@
+<section
+  class="general-card meal-card border border-warning shadow-sm p-4 rounded-2"
+>
+  <div class="card-img rounded-2 mb-2">
+    <img
+      src="{{ mealImage }}"
+      class="img-fluid"
+      alt="{{ displayMeal().name }}"
+    />
+    <div class="img-overlay">
+      <div class="d-flex w-100 justify-content-between align-items-center">
+        @if (showCartBtn) {
+        <div>
+          <app-cart-btn [meal]="meal()"></app-cart-btn>
+        </div>
+        }
+        <div class="badge bg_P-A400">
+          <h6 class="mb-0">
+            {{ displayMeal().price || 0 | currency : "EGP" : "جنيه " }}
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-1 pt-2">
+    <div class="row justify-content-between align-items-baseline mb-2">
+      <div class="col-12">
+        <h5 class="text-wrap">{{ displayMeal().name || "اسم الوجبه" }}</h5>
+      </div>
+    </div>
+    @if (!isPreview()) {
+    <div
+      class="d-flex justify-content-between card-rating mb-3"
+      [innerHTML]="meal().totalRate | rate"
+    ></div>
+    }
+    <div class="row flex-wrap">
+      <div class="col-auto">
+        <p class="native-tag">{{ meal().category || "الفئة" }}</p>
+      </div>
+    </div>
+    @if (showChiefName) {
+    <div class="row justify-content-end mb-2">
+      <div class="col-auto">
+        <h6
+          class="text-muted fs-6"
+          [innerHTML]="meal().chief_name | chieftitle"
+        ></h6>
+      </div>
+    </div>
+    } @if (!isPreview()) {
+    <div class="row">
+      <a class="btn btn_P-A500" [routerLink]="['/meal', meal()!.id]">
+        عرض الوجبة
+      </a>
+    </div>
+    }
+  </div>
+</section>

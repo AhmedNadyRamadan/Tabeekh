@@ -1,0 +1,54 @@
+@use "core/variables" as *;
+
+:host::ng-deep {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  & > * {
+    flex: 1 !important;
+  }
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  margin-block: 1rem;
+  padding: 1.25rem;
+
+  background: hsl(from $primary-color-A100 h s l); //rgba(200, 200, 200, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 3px 8px hsl(from $primary-color-A400 h s l / 0.3);
+
+  .info-img {
+    max-width: 125px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 1/1;
+    }
+  }
+}
+
+.tabs-indexer {
+  border-bottom: 1px solid $primary-color-A300;
+  button {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    padding-bottom: 0.5rem;
+    margin-inline-end: calc(0.25rem + 0.5vw);
+    &.active {
+      border-bottom: 1px solid $primary-color-A600;
+      background: linear-gradient($primary-color-A300) bottom / 100% 10%
+        no-repeat;
+    }
+  }
+}

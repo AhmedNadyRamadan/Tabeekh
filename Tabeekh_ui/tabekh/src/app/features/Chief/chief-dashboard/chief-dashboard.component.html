@@ -1,0 +1,219 @@
+<section class="container-fluid bg-white d-flex flex-column">
+  <h2 class="mt-4">لوحة التحكم</h2>
+  <div
+    class="row align-items-center justify-content-start gap-2 gap-md-0 pt-4 pb-4"
+  >
+    <div class="col-auto flex-md-grow-0 flex-fill">
+      <button routerLink="/chief/add-meal" class="btn btn_P-A400 text-white">
+        إضافة وجبة
+      </button>
+    </div>
+    <div class="col-auto flex-md-grow-0 flex-fill">
+      <button class="btn bg-moving-grad text-white" (click)="showDialog()">
+        إقترح وصفة
+      </button>
+      <!--  -->
+      <p-dialog
+        header="اختار فئة"
+        [(visible)]="displayDialog"
+        [modal]="true"
+        [style]="{ minHeight: '400px', minWidth: '250px' }"
+      >
+        <form (ngSubmit)="submitCategory()" #categoryForm="ngForm">
+          <div class="p-field">
+            <label for="category" class="d-block">الفئة</label>
+            <p-select
+              id="category"
+              [options]="(categories | async)!"
+              [(ngModel)]="selectedCategory"
+              name="category"
+              optionLabel="name"
+              optionValue="name"
+              placeholder="اختر الفئة"
+              required
+            ></p-select>
+          </div>
+          <p-footer>
+            <button
+              pButton
+              class="w-100 mt-2"
+              type="submit"
+              label="اقترح"
+              [disabled]="!selectedCategory"
+            ></button>
+          </p-footer>
+        </form>
+      </p-dialog>
+
+      <!-- Recipes Preview -->
+
+      <p-dialog
+        header="عرض الاقتراح"
+        [(visible)]="displayResult"
+        [modal]="true"
+        [style]="{ maxWidth: '80vw' }"
+      >
+        <div class="p-grid">
+          @for (recipe of recipes; track $index) {
+
+          <div class="p-col-12 p-md-4">
+            <p-card [header]="recipe.name">
+              <ng-template pTemplate="content">
+                <strong>المكونات</strong>
+                <ul>
+                  @for (ing of recipe.ingredients; track $index) {
+
+                  <li>{{ ing }}</li>
+                  }
+                </ul>
+                <strong>الوصفة</strong>
+                <p style="white-space: pre-line">{{ recipe.recipe }}</p>
+              </ng-template>
+            </p-card>
+          </div>
+          }
+        </div>
+      </p-dialog>
+    </div>
+  </div>
+  <div class="row flex-fill">
+    <p-table
+      #dt
+      [value]="(initialMealsValue | async)!"
+      dataKey="id"
+      editMode="row"
+      styleClass="h_Full"
+    >
+      <ng-template #header>
+        <tr>
+          <th pSortableColumn="name">الاسم <p-sortIcon field="name" /></th>
+          <th pSortableColumn="categories">
+            الفئات <p-sortIcon field="categories" />
+          </th>
+          <th pSortableColumn="price">السعر <p-sortIcon field="price" /></th>
+          <th pSortableColumn="day">اليوم <p-sortIcon field="day" /></th>
+          <th pSortableColumn="available">
+            متواجد <p-sortIcon field="available" />
+          </th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template #body let-meal let-editing="editing" let-ri="rowIndex">
+        <tr [pEditableRow]="meal">
+          <td>
+            <p-cellEditor>
+              <ng-template #input>
+                <input pInputText type="text" [(ngModel)]="meal.name" />
+              </ng-template>
+              <ng-template #output>
+                {{ meal.name }}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td>
+            <p-cellEditor>
+              <ng-template #input>
+                <p-select
+                  [options]="(categories | async)!"
+                  [(ngModel)]="meal.category"
+                  optionLabel="name"
+                  optionValue="name"
+                  placeholder="اختر الفئات"
+                />
+                <!-- [maxSelectedLabels]="3"  -->
+              </ng-template>
+              <ng-template #output>
+                {{ meal.category }}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td>
+            <p-cellEditor>
+              <ng-template #input>
+                <p-inputnumber inputId="integeronly" [(ngModel)]="meal.price" />
+              </ng-template>
+              <ng-template #output>
+                {{ meal.price }}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td>
+            <p-cellEditor>
+              <ng-template #input>
+                <p-select
+                  [options]="DaysAR"
+                  [(ngModel)]="meal.day"
+                  optionLabel="day"
+                  optionValue="id"
+                  placeholder="اختر اليوم"
+                  class="w-full md:w-56"
+                />
+              </ng-template>
+              <ng-template #output>
+                {{ DaysARArr[meal.day] }}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td>
+            <p-cellEditor>
+              <ng-template #input>
+                <p-select
+                  [options]="statuses"
+                  optionLabel="label"
+                  optionValue="value"
+                  [(ngModel)]="meal.available"
+                />
+              </ng-template>
+              <ng-template #output>
+                <p-tag
+                  [value]="status[+meal.available]"
+                  [severity]="getSeverity(meal.available)"
+                />
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td>
+            <div class="flex items-center justify-center gap-2">
+              @if (!editing) {
+              <button
+                pButton
+                pRipple
+                type="button"
+                pInitEditableRow
+                icon="pi pi-pencil"
+                (click)="onRowEditInit(meal)"
+                text
+                rounded
+                severity="secondary"
+              ></button>
+              } @else {
+              <button
+                pButton
+                pRipple
+                type="button"
+                pSaveEditableRow
+                icon="pi pi-check"
+                (click)="onRowEditSave(meal)"
+                text
+                rounded
+                severity="secondary"
+              ></button>
+              <button
+                pButton
+                pRipple
+                type="button"
+                pCancelEditableRow
+                icon="pi pi-times"
+                (click)="onRowEditCancel(meal, ri)"
+                text
+                rounded
+                severity="secondary"
+              ></button>
+              }
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</section>

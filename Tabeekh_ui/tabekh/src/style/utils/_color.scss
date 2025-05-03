@@ -1,0 +1,41 @@
+@use "../core/variables" as *;
+
+.color_P-A100{
+    color: $primary-color-A100 !important;
+}
+
+.color_P-A200{
+    color: $primary-color-A200 !important;
+}
+
+.color_P-A300{
+    color: $primary-color-A300 !important;
+}
+
+.color_P-A400{
+    color: $primary-color-A400 !important;
+}
+
+.color_P-A500{
+    color: $primary-color-A500 !important;
+}
+
+.color_P-A600{
+    color: $primary-color-A600 !important;
+}
+
+.bg_P-A100{
+    background: $primary-color-A100 !important;
+}
+.bg_P-A300{
+    background: $primary-color-A300 !important;
+}
+.bg_P-A400{
+    background: $primary-color-A400 !important;
+}
+.bg_P-A500{
+    background: $primary-color-A500 !important;
+}
+.bg_P-A600{
+    background: $primary-color-A600 !important;
+}

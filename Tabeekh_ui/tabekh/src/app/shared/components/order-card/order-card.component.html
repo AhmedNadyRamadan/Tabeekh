@@ -1,0 +1,33 @@
+<p-panel [toggleable]="toggleEnabled" [collapsed]="true" (collapsedChange)="collapsedChange($event)" (onAfterToggle)="afterToggle($event)" (onBeforeToggle)="beforeToggle($event)">
+    <ng-template #header>
+        <div class="row align-items-center justify-content-evenly gap-1 p-1 w-100">
+            <div class="col-auto d-flex align-items-center gap-2">
+                <h6 class="fw-bolder mb-0">رقم الطلب: </h6>
+                <p class="h6 mb-0">{{order().id}}</p>
+            </div>
+            <div class="col-auto d-flex align-items-center gap-2">
+                <h6 class="fw-bolder mb-0">المبلغ الإجمالي: </h6>
+                <p class="h6 mb-0">{{order().price | currency:"EGP":"جنية "}}</p>
+            </div>
+            <div class="col-auto d-flex align-items-center gap-2">
+                <h6 class="fw-bolder mb-0">التاريخ: </h6>
+                <p class="h6 mb-0">{{order().date | date:'medium'}}</p>
+            </div>
+        </div>
+    </ng-template>
+    @if (settingEnabled()) {
+    <ng-template #icons>
+        <p-button icon="pi pi-cog" severity="secondary" rounded text (click)="menu.toggle($event)" />
+        <p-menu #menu id="config_menu" [model]="items" [popup]="true" />
+    </ng-template>
+    }
+    @if (toggleEnabled) {
+        <p class="m-0">
+            @for (item of order().items; track $index) {
+                <app-cartitem [cartitem]="castCartItem(item)" [doneWith]="true"></app-cartitem>
+            }@empty {
+                <h3 class="text-center">لا يوجد بيانات</h3>
+            }
+        </p>
+    }
+</p-panel>

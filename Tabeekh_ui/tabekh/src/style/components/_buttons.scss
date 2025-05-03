@@ -1,0 +1,28 @@
+@use "../core/variables" as *;
+
+.btn_P-A100{
+    background: $primary-color-A100 !important;
+}
+.btn_P-A200{
+    background: $primary-color-A200 !important;
+}
+.btn_P-A300{
+    background: $primary-color-A300 !important;
+}
+.btn_P-A400{
+    background: $primary-color-A400 !important;
+}
+.btn_P-A500{
+    background: $primary-color-A500 !important;
+    color: white !important;
+    &:hover{
+        @extend .btn_P-A400;
+    }
+}
+.btn_P-A600{
+    background: $primary-color-A600 !important;
+    color: white !important;
+    &:hover{
+        @extend .btn_P-A500;
+    }
+}

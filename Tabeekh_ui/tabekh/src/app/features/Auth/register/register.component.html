@@ -1,0 +1,105 @@
+<section class="container-fluid bg-white">
+  <div class="row justify-content-center align-items-stretch">
+    <div class="col-12 col-md-4 col-lg-6 p-0 bg-logo"></div>
+    <div class="col-12 col-md-8 col-lg-6 align-self-center">
+      <div class="general-card-dark mt-5 mb-5 m-md-3 m-lg-5">
+        <h2>تسجيل حساب</h2>
+        <form
+          [formGroup]="registerForm"
+          (ngSubmit)="onSubmit()"
+          class="native-form"
+          enctype="multipart/form-data"
+        >
+          <div class="mb-2">
+            <label for="name">الاسم *</label>
+            <input type="text" id="name" formControlName="username" required />
+            @if (usernameControl!.invalid && usernameControl!.touched) {
+            <small>يجب إدخال الاسم</small>
+            }
+          </div>
+
+          <div class="mb-2">
+            <label for="email">البريد الإلكتروني *</label>
+            <input type="email" id="email" formControlName="email" required />
+            @if (emailControl!.invalid && emailControl!.touched){
+            <small>يجب إدخال بريد إلكتروني صالح</small>
+            }
+          </div>
+
+          <div class="mb-2">
+            <label for="password">كلمة المرور *</label>
+            <input
+              type="password"
+              id="password"
+              formControlName="password"
+              required
+            />
+            @if (passwordControl!.invalid && passwordControl!.touched){
+            <small>يجب إدخال كلمة المرور</small>
+            }
+          </div>
+
+          <div class="mb-2">
+            <label for="confirmPassword">تأكيد كلمة المرور</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              formControlName="confirmPassword"
+              required
+            />
+            @if(confirmPasswordControl!.invalid &&
+            confirmPasswordControl!.touched){
+            <small>يجب إدخال كلمة المرور وتأكيدها بشكل صحيح</small>
+            }
+          </div>
+
+          <div class="mb-2">
+            <label for="phone">رقم الهاتف *</label>
+            <input
+              type="tel"
+              id="phone"
+              formControlName="phone"
+              pattern="01[0-9]{9}"
+              required
+            />
+            @if(phoneControl!.invalid && phoneControl!.touched){
+            <small>يجب إدخال رقم هاتف صالح</small>
+            }
+          </div>
+
+          <div class="mb-2">
+            <label for="address">العنوان *</label>
+            <textarea
+              id="address"
+              formControlName="address"
+              required
+            ></textarea>
+          </div>
+
+          <div class="mb-4">
+            <p-select
+              formControlName="role"
+              [options]="roles()"
+              optionLabel="role"
+              optionValue="id"
+              placeholder="تسجيل ك"
+              class="w-100 custom-select"
+            />
+          </div>
+
+          <div class="mb-2">
+            <label for="photo">الصورة الشخصية</label>
+            <input
+              type="file"
+              id="photo"
+              accept="image/*"
+              (change)="onPhotoChange($event)"
+            />
+          </div>
+
+          <button type="submit" [disabled]="registerForm.invalid">تسجيل</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

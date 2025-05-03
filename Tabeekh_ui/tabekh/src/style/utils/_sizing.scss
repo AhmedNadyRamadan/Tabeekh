@@ -1,0 +1,13 @@
+.min-vh-50{
+    min-height: 50vh;
+}
+
+.h_Full{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 100%;
+    &>*{
+        flex: 1 !important;
+    }
+}

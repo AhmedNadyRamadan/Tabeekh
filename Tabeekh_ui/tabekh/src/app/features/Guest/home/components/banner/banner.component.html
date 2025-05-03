@@ -1,0 +1,12 @@
+<section class="home-banner">
+    <p-carousel [value]="(chiefs | async)!" [numVisible]="1"  [circular]="false" [autoplayInterval]="10000">
+        <ng-template let-chief #item>
+            <div class="banner-item w-100">
+                <img class="w-100" src="{{ chief.photo }}" alt="{{ chief.name }}">
+                <div class="banner-overlay d-md-block">
+                    <h3>{{chief.name}}</h3>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+</section>

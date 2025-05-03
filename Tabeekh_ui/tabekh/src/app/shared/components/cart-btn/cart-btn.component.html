@@ -1,0 +1,14 @@
+<section class="d-flex align-items-center gap-1">
+    @if (isAdded || isLarger()) {
+        <div class="cart-btns {{large}}">
+            <button (click)="onQuantityChange('decrease')">&#8722;</button>
+            <input type="number" (change)="onQuantityChange('set')" [(ngModel)]="quantity">
+            <button (click)="onQuantityChange('increase')">&#43;</button>
+        </div>
+    } 
+    @if(!isAdded || isLarger()) {
+        <div class="d-flex">
+            <button class="cart-btn {{large}}" [disabled]="isAdded" (click)="add()"><i class="fa fa-cart-plus"></i></button>
+        </div>
+    }
+</section>

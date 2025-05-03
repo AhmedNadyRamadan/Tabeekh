@@ -1,0 +1,80 @@
+<section class="bg-white">
+  <div class="row align-items-center justify-content-center m-3">
+    <div class="col-12">
+      <div class="general-card-dark align-self-stretch w-100 mw-100 p-2">
+        <form
+          class="native-form row ps-2 pe-2 gap-2 gap-sm-0 align-items-center"
+        >
+          <div class="col-md-5 col-sm-8 col-12">
+            <div class="d-flex gap-2 align-items-center">
+              <label for="name">الاسم</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="mb-0"
+                [(ngModel)]="queryParams().name"
+              />
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4 col-12 d-flex align-items-center">
+            <p-select
+              name="category"
+              [options]="(categories | async)!"
+              optionLabel="name"
+              optionValue="name"
+              [(ngModel)]="queryParams().category"
+              placeholder="اختر الفئات"
+              class="w-100 custom-select"
+            />
+          </div>
+          <div class="col-md-2 col-sm-6 col-12">
+            <button
+              type="submit"
+              class="p-2"
+              [disabled]="isDisabled"
+              (click)="getMeals()"
+            >
+              بحث
+            </button>
+          </div>
+          <div class="col-md-2 col-sm-6 col-12">
+            <button
+              type="reset"
+              class="btn btn-danger w-100 p-2"
+              [disabled]="isDisabled"
+              (click)="reset()"
+            >
+              تصفية
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid mb-3">
+    <div class="row justify-content-center gap-5 flex-wrap">
+      @for (meal of (data | async)!.items; track $index) {
+      <div class="d-flex justify-content-center col-auto">
+        <app-meal-card [meal]="meal"></app-meal-card>
+      </div>
+      }@empty {
+      <h3 class="text-center p-5">لا يوجد بيانات</h3>
+      }
+    </div>
+  </div>
+  @if ((data|async)!.totalCount) {
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <p-paginator
+        (onPageChange)="onPageChange($event)"
+        styleClass="paginator"
+        [first]="first"
+        [rows]="queryParams().limit"
+        [totalRecords]="(data | async)!.totalCount"
+        [rowsPerPageOptions]="[10, 20, 30]"
+      />
+    </div>
+  </div>
+  }
+</section>

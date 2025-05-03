@@ -1,0 +1,9 @@
+*:has(>.native-overlay-p) {
+    position: relative;
+    .native-overlay-p{
+        content: "";
+        position: absolute;
+        inset: 0;
+        padding: inherit;
+    }
+}

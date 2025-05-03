@@ -1,0 +1,22 @@
+@use "core/variables" as *;
+
+.home-topchiefs {
+    background: $primary-color-A400;
+    padding-block: 1rem;
+    margin-block: 1.5rem;
+    position: relative;
+
+    &::before {
+        content: " ";
+        position: absolute;
+        width: 100%;
+        height: 1.5rem;
+        top: 100%;
+        z-index: 0;
+        background: $primary-color-A300;
+    }
+
+    h3 {
+        color: $primary-color-A100 !important;
+    }
+}

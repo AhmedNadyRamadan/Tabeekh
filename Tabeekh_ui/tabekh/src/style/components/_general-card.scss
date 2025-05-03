@@ -1,0 +1,50 @@
+@use "../core/variables" as *;
+
+.general-card{
+    width: max-content;
+    max-width: 300px;
+    background: white;
+    h5{
+        font-weight: 550;
+    }
+    sup{
+        font-weight: 400;
+    }
+    .card-img{
+        height: auto;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+        .img-overlay{
+            position: absolute;
+            inset: 0;
+            padding: 0.5rem;
+
+            display: flex;
+            align-items: end;
+        }
+    }
+    .card-rating{
+        color: orange;
+        font-size: 1.2rem;
+        padding-inline: 0.25rem;
+    }
+}
+
+.general-card-dark {
+    background-color: $primary-color-A200;
+    padding: 1rem 1.53rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px hsl(from $primary-color-A600 h s l / 0.25);
+
+    h2 {
+        text-align: center;
+        color: $primary-color-A600;
+        font-weight: 550;
+        margin-bottom: 1.5rem;
+    }
+}

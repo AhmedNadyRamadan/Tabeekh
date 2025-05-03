@@ -1,0 +1,199 @@
+<section class="container-fluid bg-white">
+  <div class="row mt-4 mb-5">
+    <div class="col-12 col-md-8">
+      <h2 class="mb-4 text-center">إضافة / تعديل وجبة</h2>
+      <form [formGroup]="mealForm" (ngSubmit)="onSubmit()" class="native-form">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="name">الاسم *</label>
+            <input
+              id="name"
+              type="text"
+              formControlName="name"
+              class="form-control"
+              required
+            />
+            @if (mealForm.get('name')?.invalid && mealForm.get('name')?.touched)
+            {
+            <small class="text-danger">يجب إدخال الاسم</small>
+            }
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>الفئة *</label>
+            <p-select
+              formControlName="category"
+              [options]="(categories | async)!"
+              optionLabel="name"
+              optionValue="name"
+              class="w-100 custom-select"
+              placeholder="اختر الفئة"
+            />
+            @if (mealForm.get('category')?.invalid &&
+            mealForm.get('category')?.touched) {
+            <small class="mt-1 text-danger">يجب اختيار فئة</small>
+            }
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="price">السعر *</label>
+            <input
+              type="number"
+              id="price"
+              formControlName="price"
+              class="form-control"
+              required
+            />
+            @if (mealForm.get('price')?.invalid &&
+            mealForm.get('price')?.touched) {
+            <small class="text-danger">يجب إدخال السعر</small>
+            }
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>متاحة *</label>
+            <p-select
+              [options]="statuses"
+              optionLabel="label"
+              optionValue="value"
+              formControlName="available"
+              class="w-100 custom-select"
+            />
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>وحدة القياس *</label>
+            <p-select
+              formControlName="measure_unit"
+              [options]="units"
+              optionLabel="unit"
+              optionValue="id"
+              class="w-100 custom-select"
+              placeholder="اختر الوحدة"
+            />
+            @if (mealForm.get('measure_unit')?.invalid &&
+            mealForm.get('measure_unit')?.touched) {
+            <small class="mt-1 text-danger">يجب اختيار وحدة قياس</small>
+            }
+          </div>
+
+          <div class="col-12 mb-3">
+            <label>أيام التقديم *</label>
+            <p-multiSelect
+              formControlName="day"
+              [options]="daysOptions"
+              optionLabel="day"
+              optionValue="id"
+              class="w-100 custom-select"
+              placeholder="اختر الأيام"
+            />
+            @if (mealForm.get('day')?.invalid && mealForm.get('day')?.touched) {
+            <small class="mt-1 text-danger">يجب اختيار يوم أو أكثر</small>
+            }
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="prepration_Time">وقت التحضير (دقائق) *</label>
+            <input
+              type="number"
+              id="prepration_Time"
+              formControlName="prepration_Time"
+              class="form-control"
+            />
+            @if (mealForm.get('prepration_Time')?.invalid &&
+            mealForm.get('prepration_Time')?.touched) {
+            <small class="text-danger">يجب إدخال وقت التحضير</small>
+            }
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="photo">الصورة</label>
+            <input
+              type="file"
+              id="photo"
+              (change)="onPhotoChange($event)"
+              accept="image/*"
+              class="form-control"
+            />
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label>المكونات *</label>
+          @for (control of ingredients.controls; track $index; let i = $index) {
+          <div class="input-group d-flex mb-2">
+            <input
+              [formControl]="castFormControl(control)"
+              placeholder="مكون"
+              class="form-control"
+            />
+            @if (ingredients.length > 1) {
+            <button
+              class="btn btn-danger me-2 p-2 ps-5 pe-5 rounded h-100"
+              type="button"
+              (click)="removeIngredient(i)"
+            >
+              -
+            </button>
+            }
+          </div>
+          }
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="addIngredient()"
+          >
+            + إضافة مكون
+          </button>
+        </div>
+
+        <div class="mb-4">
+          <label>الطريقة *</label>
+          @for (control of recipe.controls; track $index; let i = $index) {
+          <div class="input-group d-flex mb-2">
+            <input
+              [formControl]="castFormControl(control)"
+              placeholder="خطوة"
+              class="form-control"
+            />
+            @if (recipe.length > 1) {
+            <button
+              class="btn btn-danger me-2 p-2 ps-5 pe-5 rounded h-100"
+              type="button"
+              (click)="removeRecipeStep(i)"
+            >
+              -
+            </button>
+            }
+          </div>
+          }
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="addRecipeStep()"
+          >
+            + إضافة خطوة
+          </button>
+        </div>
+
+        <div class="text-center">
+          <button
+            type="submit"
+            class="btn btn-primary px-5"
+            [disabled]="mealForm.invalid"
+          >
+            حفظ
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="text-center">
+        <h3>معاينة البطاقة</h3>
+        <div class="d-flex justify-content-center">
+          <app-meal-card [meal]="mealForm.value" [isPreview]="true" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

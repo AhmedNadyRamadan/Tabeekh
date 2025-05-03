@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row">
+    <app-add-reviews (submitReview)="onNewReview($event)"></app-add-reviews>
+  </div>
+  <div class="row">
+    @for (review of reviews(); track $index) {
+    <div class="col-12 mb-3">
+      <app-user-comments [review]="review"></app-user-comments>
+    </div>
+    }@empty {
+    <h3 class="text-center">لا يوجد بيانات</h3>
+    }
+  </div>
+</div>

@@ -1,0 +1,29 @@
+@use "../core/variables" as *;
+
+.custom-list{
+    list-style-position: inside;
+    padding-inline: calc(0.25rem + 0.5vw);
+    li{
+        font-size: 1.2rem;
+        padding: 0.25rem 0.75rem;
+        background: $primary-color-A100;
+        border-radius: 0.2rem;
+        
+        &:not(:last-of-type){
+            margin-bottom: 0.2rem;
+        }
+        &::marker{
+            font-size: 1.75rem;
+            color: $primary-color-A600;
+        }
+        &::before{
+            content: "";
+            padding: 0.1rem;
+        }
+        span{
+            display: inline-block;
+            vertical-align: text-top;
+            line-height: 100%;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="p-3 border rounded bg-light">
+            <div class="mb-1">
+                <label class="form-label">تقييم *</label>
+                <div>
+                    @for (star of starsArray; track $index; let i = $index) {
+                    <i class="pi" [ngClass]="i < rating() ? 'pi-star-fill text-warning' : 'pi-star'"
+                        (click)="selectRating(i + 1)" style="cursor: pointer; font-size: 1.5rem;"></i>
+                    }
+                </div>
+
+                @if (rating() === 0 && form.get('rate')?.touched) {
+                <div class="text-danger">
+                    يرجي تحديد تقييم
+                </div>
+                }
+            </div>
+
+            <div class="mb-3">
+                <label for="comment" class="form-label">تعليق *</label>
+                <textarea id="comment" rows="3" class="form-control" formControlName="comment"></textarea>
+                @if (form.get('comment')?.invalid && form.get('comment')?.touched) {
+                <div class="text-danger">
+                    يرجي إدخال التعليق
+                </div>
+                }
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">أضف تقييمك</button>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,14 @@
+<section class="home-offers">
+    <div class="d-flex justify-content-center mb-2">
+        <h3 class="h1 mb-4 text-center border-5 border-bottom border_P-A100 cairo-500">العروض</h3>
+    </div>
+    <div class="container">
+        <p-carousel [value]="(offers | async) || []" [numVisible]="3"  [showIndicators]="false" [circular]="false" [responsiveOptions]="responsiveOptions" [autoplayInterval]="5000">
+            <ng-template let-offer #item>
+                <div class="d-flex justify-content-center w-100">
+                    <app-meal-card [meal]="offer"></app-meal-card>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+</section>

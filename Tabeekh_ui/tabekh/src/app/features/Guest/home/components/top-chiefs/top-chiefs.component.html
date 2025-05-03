@@ -1,0 +1,14 @@
+<section class="home-topchiefs">
+    <div class="d-flex justify-content-center mb-2">
+        <h3 class="h1 mb-4 text-center border-5 border-bottom border_P-A600 cairo-500">أفضل الشيفات</h3>
+    </div>
+    <div class="container">
+        <p-carousel [value]="(topchiefs | async) || []" [numVisible]="3"  [showIndicators]="false" [circular]="false" [responsiveOptions]="responsiveOptions">
+            <ng-template let-chief #item>
+                <div class="d-flex justify-content-center w-100">
+                    <app-chief-card [chief]="chief"></app-chief-card>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+</section>

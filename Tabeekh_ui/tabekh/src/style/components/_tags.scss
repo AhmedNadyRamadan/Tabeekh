@@ -1,0 +1,9 @@
+@use "../core/variables" as *;
+
+.native-tag{
+    font-size: 0.86rem;
+    padding: 0.2rem 0.25rem;
+    border-radius: 0.2rem;
+    color: $primary-color-A400;
+    border: 1px solid $primary-color-A400;
+}

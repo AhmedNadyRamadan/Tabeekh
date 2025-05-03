@@ -1,0 +1,25 @@
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.main-header {
+    background-color: white;
+    flex-shrink: 0;
+    height: 10%;
+}
+
+.main-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    &>*:not(router-outlet){
+        flex: 1 !important;
+    }
+}
+
+.main-footer {
+    flex-shrink: 0;
+}

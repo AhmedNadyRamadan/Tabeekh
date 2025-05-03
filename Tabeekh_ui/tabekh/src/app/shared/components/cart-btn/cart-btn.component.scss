@@ -1,0 +1,62 @@
+@use "core/variables" as *;
+
+.cart-btns {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+
+    button {
+        background-color: inherit;
+        color: inherit;
+        border: none;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        appearance: none;
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        width: 5ch;
+        border: none;
+        font-size: 1rem;
+        text-align: center;
+        color: gray;
+        padding-inline: 0.4rem;
+        appearance: textfield;
+        -moz-appearance: textfield;
+        &:focus{
+            border: none;
+            outline: none;
+        }
+    }
+}
+
+.cart-btns,
+.cart-btn {
+    font-size: 1.1rem;
+    background-color: white;
+    color: $primary-color-A600; //hsl(41, 100%, 50%);
+    border: 1px solid $primary-color-A600; //hsl(41, 100%, 50%);
+    border-radius: 0.2rem;
+    overflow: hidden;
+    max-width: max-content;
+
+    &.larger {
+        font-size: 1.25rem;
+    }
+}
+
+.cart-btn {
+    &.larger {
+        padding: 0.05rem 2rem;
+    }
+    &:disabled{
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}

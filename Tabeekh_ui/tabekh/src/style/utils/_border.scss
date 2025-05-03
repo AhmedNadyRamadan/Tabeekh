@@ -1,0 +1,14 @@
+@use "../core/variables" as *;
+
+
+.border_P-A100{
+    border-color: $primary-color-A100 !important;
+}
+
+.border_P-A400{
+    border-color: $primary-color-A400 !important;
+}
+
+.border_P-A600{
+    border-color: $primary-color-A600 !important;
+}

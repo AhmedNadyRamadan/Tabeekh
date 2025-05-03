@@ -1,0 +1,58 @@
+<section class="container-fluid bg-white">
+  <div class="row gap-2 gap-md-0 mt-2 mb-2">
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card shadow-sm">
+        <h3 class="card-header">بيانات الطلب</h3>
+        <div class="card-body">
+          <div
+            class="d-flex align-items-center justify-content-between gap-3 mb-3"
+          >
+            <h6 class="mb-0 fw-bold">تكلفة الوجبات:</h6>
+            <p class="mb-0">
+              {{ totalPrice | async | currency : "EGP" : "جنية " }}
+            </p>
+          </div>
+          <div
+            class="d-flex align-items-center justify-content-between gap-3 mb-3"
+          >
+            <h6 class="mb-0 fw-bold">تكلفة التوصيل:</h6>
+            <p class="mb-0">{{ 15 | currency : "EGP" : "جنية " }}</p>
+          </div>
+          <div
+            class="d-flex align-items-center justify-content-between gap-3 mb-3"
+          >
+            <h6 class="mb-0 fw-bold">إجمالي:</h6>
+            <p class="mb-0">
+              {{
+                ((totalPrice | async) || 0) + 15 | currency : "EGP" : "جنية "
+              }}
+            </p>
+          </div>
+          @if(isShowOrder()) {
+          <div class="d-flex">
+            <button
+              class="btn btn-primary w-100"
+              [disabled]="orderDisabled | async"
+              (click)="onSubmitOrder()"
+            >
+              أطلب الأن
+            </button>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-8">
+      <div class="card shadow-sm">
+        <h3 class="card-header">الطلب</h3>
+        <div class="card-body">
+          @for (item of cartitems| async; track $index) {
+          <app-cartitem [cartitem]="item"></app-cartitem>
+          }@empty {
+          <h3 class="text-center">لا يوجد بيانات</h3>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

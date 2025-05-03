@@ -1,0 +1,30 @@
+<section class="container-fluid bg-white">
+    <div class="row justify-content-center align-items-stretch">
+        <div class="col-12 col-md-4 col-lg-6 p-0 bg-logo"></div>
+        <div class="col-12 col-md-8 col-lg-6 align-self-center">
+            <div class="general-card-dark mt-5 mb-5 m-md-3 m-lg-5">
+                <form [formGroup]="loginForm" class="native-form" (ngSubmit)="onSubmit()">
+                    <h2>تسجيل الدخول</h2>
+                    <div class="mb-2">
+                        <label for="email">البريد الإلكتروني *</label>
+                        <input type="email" id="email" formControlName="email" />
+                        @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+                          <small>يرجى إدخال بريد إلكتروني صالح.</small>
+                        }
+                    </div>
+                    
+                    <div class="mb-2">
+                        <label for="password">كلمة المرور *</label>
+                        <input type="password" id="password" formControlName="password" />
+                        @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+                          <small>كلمة المرور مطلوبة (6 أحرف على الأقل).</small>
+                        }
+                    </div>
+                
+                    <button type="submit" [disabled]="loginForm.invalid">دخول</button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</section>

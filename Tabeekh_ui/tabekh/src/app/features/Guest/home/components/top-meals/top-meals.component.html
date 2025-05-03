@@ -1,0 +1,14 @@
+<section class="home-topMeals">
+    <div class="d-flex justify-content-center mb-2">
+        <h3 class="h1 mb-4 text-center border-5 border-bottom border_P-A100 cairo-500">أفضل الوجبات</h3>
+    </div>
+    <div class="container">
+        <p-carousel [value]="(topMeals | async) || []" [numVisible]="3"  [showIndicators]="false" [circular]="false" [responsiveOptions]="responsiveOptions">
+            <ng-template let-meal #item>
+                <div class="d-flex justify-content-center w-100">
+                    <app-meal-card [meal]="meal"></app-meal-card>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+</section>

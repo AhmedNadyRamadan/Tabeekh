@@ -1,0 +1,29 @@
+<section class="container-fluid bg-white h_Full">
+  <div class="row h-100">
+    <div class="col-lg-3 col-md-3 col-12 bg_P-A600">
+      <div class="h_Full">
+        <div class="mt-2">
+          <div class="d-flex align-items-center justify-content-center mb-3">
+            <img class="img-fluid img-thumbnail" [src]="userImage" alt="" />
+          </div>
+          <div class="text-center bg-white p-2 shadow-sm rounded-1 mb-3">
+            <h1 class="bg_P-A500 rounded-1 text-white">{{ user.name }}</h1>
+            <h4>{{ user.email }}</h4>
+            <h5>{{ user.phone }}</h5>
+            <p>{{ user.address }}</p>
+            <button class="btn btn-primary" (click)="updateAccount()">
+              تعديل البيانات
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-9 col-md-9 col-12 mt-5">
+      @for (order of orders | async; track $index) {
+      <div class="w-100 mb-3">
+        <app-order-card [order]="order" [toggleable]="true"></app-order-card>
+      </div>
+      }
+    </div>
+  </div>
+</section>

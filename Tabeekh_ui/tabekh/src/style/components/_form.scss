@@ -1,0 +1,61 @@
+@use '../core' as *;
+
+
+.native-form {
+    label {
+        display: block;
+        margin-bottom: 0.3rem;
+        font-weight: bold;
+        color: $primary-color-A400;
+    }
+
+    input,
+    textarea,
+    .custom-select {
+        width: 100%;
+        border-radius: 5px;
+        border: 2px solid $primary-color-A300;
+        background-color: $primary-color-A100;
+        color: $primary-color-A600;
+
+        &:focus {
+            outline: none;
+            border-color: $primary-color-A500;
+            background-color: #fff;
+        }
+    }
+
+    input,
+    textarea{
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+    }
+
+    small {
+        color: $primary-color-A500;
+        font-size: 0.8rem;
+        margin-top: -0.8rem;
+        display: block;
+    }
+
+    button[type=submit] {
+        width: 100%;
+        padding: 0.7rem;
+        background-color: $primary-color-A600;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: $primary-color-A500;
+        }
+
+        &:disabled {
+            background-color: $primary-color-A300;
+            cursor: not-allowed;
+        }
+    }
+}

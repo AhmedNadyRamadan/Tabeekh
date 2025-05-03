@@ -1,0 +1,23 @@
+<section class="general-card border border-warning shadow-sm p-4 rounded-2">
+  <div class="card-img rounded-2 mb-2">
+    <img src="{{ chiefImage }}" class="img-fluid" alt="{{ chief()!.name }}" />
+  </div>
+  <div class="p-1 pt-2">
+    <div
+      class="row justify-content-between align-items-baseline flex-nowrap mb-2"
+    >
+      <div class="col-auto">
+        <h5 [innerHTML]="chief()!.name | chieftitle"></h5>
+      </div>
+    </div>
+    <div
+      class="d-flex justify-content-between card-rating mb-3"
+      [innerHTML]="chief()!.totalRate | rate"
+    ></div>
+    <div class="row">
+      <a class="btn btn_P-A500" [routerLink]="['/chief', chief()!.id]">
+        عرض الصفحة
+      </a>
+    </div>
+  </div>
+</section>

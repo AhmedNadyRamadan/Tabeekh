@@ -1,0 +1,12 @@
+<section class="border rounded-2 p-3 mb-1">
+  <h5>{{ review().customer_Name || "اسم المستخدم" }}</h5>
+  <div class="row mb-2">
+    <div class="col-4 col-sm-2">
+      <div
+        class="d-flex justify-content-between text-warning"
+        [innerHTML]="review().totalRate | rate"
+      ></div>
+    </div>
+  </div>
+  <p class="mb-0">{{ review().comment }}</p>
+</section>

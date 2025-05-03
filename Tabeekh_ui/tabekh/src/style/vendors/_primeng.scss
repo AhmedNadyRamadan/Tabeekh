@@ -1,0 +1,30 @@
+@use "../core/variables" as *;
+@import "primeicons/primeicons.css";
+
+.p-button-text{
+    &.p-button-secondary:not(:disabled){
+        color: $primary-color-A600 !important;
+        &:hover{
+            background: $primary-color-A600 !important;
+            color: $primary-color-A100 !important;
+        }
+    }
+}
+
+// .paginator{
+//     --p-paginator-background: $primary-color-A100 !important;
+//     --p-select-background: $primary-color-A100 !important;
+//     --p-select-color: $primary-color-A600 !important;
+//     --p-overlay-select-background: $primary-color-A100 !important;
+//     --p-overlay-select-color: $primary-color-A600 !important;
+//     --p-select-overlay-background: var(--p-overlay-select-background);
+//     --p-select-overlay-color: var(--p-overlay-select-color);
+//     --p-list-option-focus-background: $primary-color-A100 !important;
+//     --p-list-option-focus-color: $primary-color-A600 !important;
+//     --p-list-option-selected-focus-background: $primary-color-A100 !important;
+//     --p-list-option-selected-focus-color: $primary-color-A600 !important;
+//     --p-list-option-selected-background: $primary-color-A100 !important;
+//     --p-list-option-selected-color: $primary-color-A600 !important;
+//     // --p-select-option-selected-focus-background: var(--p-list-option-selected-focus-background);
+//     // --p-select-option-selected-focus-color: var(--p-list-option-selected-focus-color);
+// }
